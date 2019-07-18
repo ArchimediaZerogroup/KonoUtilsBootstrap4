@@ -19,3 +19,8 @@ gem 'listen'
 
 gem 'kono_utils',path:"../KonoUtils"
 gem 'kono_utils_helpers',path:"../kono_utils_helpers"
+
+##
+# questo serve per caricare correttamente il renderer
+gem 'cells-erb'
+gem 'cells-rails'

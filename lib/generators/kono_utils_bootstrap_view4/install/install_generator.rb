@@ -12,8 +12,27 @@ module KonoUtilsBootstrapView4
     end
 
     def install_node_dependency
-      yarn_packages = ['bootstrap@4.3.1']
+      yarn_packages = ['bootstrap@4.3.1','jquery@3.4.1']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
+    end
+
+    def append_dependecy_to_assets
+      requirements = [
+        'jquery/dist/jquery',
+        'kono_utils_bootstrap_view4/application'
+      ]
+      inject_into_file 'app/assets/javascripts/application.js',
+                       "#{requirements.collect {|c| "\n//= require #{c}"}.join}\n",
+                       before: "//= require_tree ."
+
+
+      requirements=[
+        'kono_utils_bootstrap_view4/application'
+      ]
+      inject_into_file 'app/assets/stylesheets/application.css',
+                       "#{requirements.collect {|c| "\n *= require #{c}"}.join}\n",
+                       before: " *= require_tree ."
+
     end
 
     def append_gem_dependency
