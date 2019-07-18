@@ -12,7 +12,7 @@ module KonoUtilsBootstrapView4
     end
 
     def install_node_dependency
-      yarn_packages = []
+      yarn_packages = ['bootstrap@4.3.1']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
