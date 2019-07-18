@@ -16,5 +16,9 @@ module KonoUtilsBootstrapView4
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
+    def append_gem_dependency
+      gem 'cells-erb' # inserita in installazione come specificato qua http://trailblazer.to/gems/cells/rails.html#engine-render-problems
+      gem 'cells-rails'
+    end
   end
 end

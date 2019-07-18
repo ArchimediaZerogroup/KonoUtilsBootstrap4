@@ -28,6 +28,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 5.2.3"
   spec.add_dependency "kono_utils"
 
+  spec.add_dependency "trailblazer-cells",'~> 0.0.3'
+  spec.add_dependency 'cells-rails'
+  spec.add_dependency "cells-erb"
 
   spec.add_development_dependency "sqlite3"
 end
