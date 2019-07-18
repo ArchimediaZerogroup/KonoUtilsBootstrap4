@@ -1,0 +1,8 @@
+<tr>
+  <% table_columns.each do |t| %>
+    <%= column_builder(t, :th) do %>
+      <%= print_column(t) %>
+    <% end %>
+  <% end %>
+  <th class="index-col-btn"></th>
+</tr>

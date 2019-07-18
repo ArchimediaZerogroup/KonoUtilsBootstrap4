@@ -2,11 +2,6 @@ module KonoUtils::Object::Cell::Index # namespace
   class Table < Base
 
 
-    ##
-    # Questa funzione serve per stampare il contenuto dell'header
-    def print_column_head(field)
-      block_given? ? yield(field) : base_class.han(field)
-    end
 
 
     def pagination

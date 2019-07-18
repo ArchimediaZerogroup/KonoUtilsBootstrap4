@@ -1,7 +1,7 @@
 <tr>
   <% table_columns.each do |t| %>
-    <%= column_builder(t, :td, record: model) do %>
-      <%= print_column(model, t) %>
+    <%= column_builder(t, :td) do %>
+      <%= print_column(t) %>
     <% end %>
   <% end %>
   <th class="index-col-btn">
