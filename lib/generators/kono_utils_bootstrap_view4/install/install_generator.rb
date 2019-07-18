@@ -12,13 +12,14 @@ module KonoUtilsBootstrapView4
     end
 
     def install_node_dependency
-      yarn_packages = ['bootstrap@4.3.1','jquery@3.4.1']
+      yarn_packages = ['bootstrap@4.3.1', 'jquery@3.4.1', 'popper.js']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
     def append_dependecy_to_assets
       requirements = [
         'jquery/dist/jquery',
+        'popper.js/dist/popper.js',
         'kono_utils_bootstrap_view4/application'
       ]
       inject_into_file 'app/assets/javascripts/application.js',
@@ -26,7 +27,7 @@ module KonoUtilsBootstrapView4
                        before: "//= require_tree ."
 
 
-      requirements=[
+      requirements = [
         'kono_utils_bootstrap_view4/application'
       ]
       inject_into_file 'app/assets/stylesheets/application.css',
