@@ -1,5 +1,9 @@
 {
-  "name": "dummy",
-  "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "3",
+    "moment": "^2.24.0",
+    "patternfly-bootstrap-treeview": "^2.1.8",
+    "underscore": "^1.9.1",
+    "wolfy87-eventemitter": "^5.2.6"
+  }
 }

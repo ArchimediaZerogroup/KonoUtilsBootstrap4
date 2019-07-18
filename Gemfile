@@ -13,3 +13,6 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+gem 'kono_utils',path:"../KonoUtils"
+gem 'kono_utils_helpers',path:"../kono_utils_helpers"

@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Dummy</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <title>Dummy</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-  <body>
-    <%= yield %>
-  </body>
+<div class="container">
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+  <%= content_for :page_title if content_for? :page_title%>
+  <%= content_for :side_title if content_for? :side_title%>
+
+  <%= yield %>
+</div>
+
+</body>
 </html>
