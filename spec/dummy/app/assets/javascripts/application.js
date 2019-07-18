@@ -11,7 +11,5 @@
 // about supported directives.
 //
 //= require rails-ujs
-
-//= require jquery/dist/jquery
 //= require kono_utils_bootstrap_view4/application
 //= require_tree .
