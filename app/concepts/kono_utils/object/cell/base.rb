@@ -16,12 +16,6 @@ module KonoUtils::Object::Cell # namespace
     delegates :parent_controller, :edit_custom_polymorphic_path
     delegates :parent_controller, :index_custom_polymorphic_path
 
-    ##
-    # Base Editing Helpers
-    delegates :parent_helpers, :edit_button
-    delegates :parent_helpers, :delete_button
-
-
     def parent_helpers
       parent_controller.helpers
     end
@@ -32,6 +26,22 @@ module KonoUtils::Object::Cell # namespace
 
     def current_user
       context[:current_user]
+    end
+
+    def title_mod
+      "#{t(:edit)} #{model.mn}"
+    end
+
+    def title_new
+      "#{t(:new)} #{model.mn}"
+    end
+
+    def title_newa
+      "#{t(:newa)} #{model.mn}"
+    end
+
+    def title_del
+      "#{t(:del)} #{model.mn}"
     end
 
   end
