@@ -7,6 +7,7 @@ module KonoUtilsBootstrapView4
     require 'kaminari'
     require 'kaminari/actionview/action_view_extension'
     require 'font-awesome-rails'
+    require 'simple_form'
 
 
 
