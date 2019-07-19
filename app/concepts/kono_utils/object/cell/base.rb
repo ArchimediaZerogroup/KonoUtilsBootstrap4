@@ -44,5 +44,21 @@ module KonoUtils::Object::Cell # namespace
       "#{t(:del)} #{model.mn}"
     end
 
+    def title_mod_g
+      "#{t("edit_title_#{model_gender}", default: 'Modifica')} #{model.mn}"
+    end
+
+    def title_new_g
+      "#{t("new_title_#{model_gender}", default: 'Nuovo')} #{model.mn}"
+    end
+
+    def title_del_g
+      "#{t("del_title_#{model_gender}", default: 'Cancella')} #{model.mn}"
+    end
+
+    def model_gender
+      t("activerecord.modelgender.#{model.class.name.underscore.to_sym}", :default => :m).to_sym
+    end
+
   end
 end
