@@ -4,6 +4,7 @@ module KonoUtilsBootstrapView4
     require 'trailblazer/cells'
     require 'cell/erb'
     require 'cell/rails'
+    require 'kaminari'
 
 
     initializer 'kono_utils_bootstrap_view4.append_views', :before => 'kono_utils.append_views', :group => :all do |app|
