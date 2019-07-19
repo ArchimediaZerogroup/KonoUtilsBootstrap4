@@ -23,8 +23,9 @@ PATH
     kono_utils_bootstrap_view4 (0.1.0)
       cells-erb
       cells-rails
-      kaminari
-      kono_utils
+      font-awesome-rails (~> 4.7.0)
+      kaminari (~> 1.1)
+      kono_utils (~> 1.0)
       rails (~> 5.2.3)
       trailblazer-cells (~> 0.0.3)
 
@@ -104,6 +105,8 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)

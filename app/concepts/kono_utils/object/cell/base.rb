@@ -5,6 +5,7 @@ module KonoUtils::Object::Cell # namespace
     include Pundit
     include Kaminari::Helpers::HelperMethods
     include Kaminari::Cells
+    include FontAwesome::Rails::IconHelper
 
     ##
     # Helpers di controller
@@ -19,6 +20,7 @@ module KonoUtils::Object::Cell # namespace
     # Base Editing Helpers
     delegates :parent_helpers, :edit_button
     delegates :parent_helpers, :delete_button
+
 
     def parent_helpers
       parent_controller.helpers
