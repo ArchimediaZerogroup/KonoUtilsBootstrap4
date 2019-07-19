@@ -1,0 +1,9 @@
+<% content_for(:page_title) do %>
+  <%= concept(base_class.concept_ns("cell/create/page_title"), @object, context: {current_user: current_user}) %>
+<% end %>
+<% content_for(:side_title) do %>
+  <%= concept(base_class.concept_ns("cell/create/side_title"), @object, context: {current_user: current_user}) %>
+<% end %>
+
+
+<%= concept(base_class.concept_ns("cell/form"), @object, context: {current_user: current_user}) %>
