@@ -12,6 +12,6 @@
 //
 //= require rails-ujs
 //= require jquery/dist/jquery
-//= require popper.js/dist/popper.js
+//= require popper.js/dist/umd/popper.js
 //= require kono_utils_bootstrap_view4/application
 //= require_tree .

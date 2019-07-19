@@ -19,7 +19,7 @@ module KonoUtilsBootstrapView4
     def append_dependecy_to_assets
       requirements = [
         'jquery/dist/jquery',
-        'popper.js/dist/popper.js',
+        'popper.js/dist/umd/popper.js',
         'kono_utils_bootstrap_view4/application'
       ]
       inject_into_file 'app/assets/javascripts/application.js',
