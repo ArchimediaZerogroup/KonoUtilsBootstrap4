@@ -4,5 +4,6 @@ module KonoUtilsBootstrapView4
   extend ActiveSupport::Autoload
 
   autoload :PaginateProxer
+  autoload :BaseClassConceptNs
 
 end
