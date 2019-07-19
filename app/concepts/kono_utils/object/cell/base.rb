@@ -25,7 +25,7 @@ module KonoUtils::Object::Cell # namespace
     end
 
     def _prefixes
-      super + parent_controller.lookup_context.view_paths.collect(&:to_path)
+      base_class.concept_prefix + super + parent_controller.lookup_context.view_paths.collect(&:to_path)
     end
 
     def current_user
