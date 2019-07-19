@@ -3,6 +3,8 @@ module KonoUtils::Object::Cell # namespace
     view_paths << "#{KonoUtilsBootstrapView4::Engine.root}/app/concepts"
 
     include Pundit
+    include Kaminari::Helpers::HelperMethods
+    include Kaminari::Cells
 
     ##
     # Helpers di controller

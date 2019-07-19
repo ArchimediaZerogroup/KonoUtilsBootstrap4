@@ -5,7 +5,7 @@ module KonoUtils::Object::Cell::Index # namespace
 
 
     def pagination
-      'paginazione da pensare'
+      paginate(model)
     end
 
     alias_method :pagination_top, :pagination

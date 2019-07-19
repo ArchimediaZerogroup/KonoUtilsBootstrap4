@@ -8,7 +8,6 @@ PATH
       pundit (~> 2.0)
       rdiscount
       sass-rails
-      will_paginate (~> 3.1.0)
 
 PATH
   remote: ../kono_utils_helpers
@@ -120,6 +119,9 @@ GEM
     kaminari-activerecord (1.1.1)
       activerecord
       kaminari-core (= 1.1.1)
+    kaminari-cells (0.0.4)
+      cells (>= 4.0.0, <= 5.0.0)
+      kaminari (>= 0.16.0)
     kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -206,7 +208,6 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    will_paginate (3.1.7)
 
 PLATFORMS
   ruby
@@ -214,6 +215,7 @@ PLATFORMS
 DEPENDENCIES
   cells-erb
   cells-rails
+  kaminari-cells
   kono_utils!
   kono_utils_bootstrap_view4!
   kono_utils_helpers!

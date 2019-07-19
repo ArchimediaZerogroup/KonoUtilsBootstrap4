@@ -1,6 +1,18 @@
 Kaminari::Helpers::Tag.class_eval do
   def to_s(locals = {}) #:nodoc:
-    @template.render :partial => "../views/kaminari/#{@theme}#{self.class.name.demodulize.underscore}", :locals => @options.merge(locals)
+    @template.render(
+      :partial => "../views/kaminari/#{@theme}#{self.class.name.demodulize.underscore}",
+      :formats => [:html],
+      :locals => @options.merge(locals)
+    )
+  end
+end
+
+# override per motivi inspiegabili
+Kaminari::Helpers::Paginator.class_eval do
+  def render(&block)
+    @output_buffer<< instance_eval(&block).html_safe if @options[:total_pages] > 1
+    @output_buffer
   end
 end
 
