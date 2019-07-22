@@ -1,5 +1,11 @@
 class UserPolicy < BaseEditingPolicy
 
+
+  def editable_attributes
+    super - [:category_id] + [:category]
+  end
+
+
   def index?
     true
   end
