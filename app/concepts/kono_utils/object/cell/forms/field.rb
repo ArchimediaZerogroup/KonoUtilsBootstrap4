@@ -3,10 +3,13 @@ module KonoUtils::Object::Cell::Forms # namespace
   class Field < Base
 
     ##
-    # Questa funzione serve per essere sovrascritta nell'helper specializzato del controller
+    # Questa funzione serve per essere sovrascritta dal field generico nella cella specifica del modello
     # e quindi stampare un determinato campo in modo differente
     # si occupa anche di gestire i campi provenienti dalla policy nel caso siano a più livelli con i nested
-    # prendiamo in considerazione la situazione con has_many :campo=>[] o con :campo=>[:ciao,:pippo,:pluto]
+    # prendiamo in considerazione le situazioni con
+    # - has_many:
+    #             - :campo=>[] -> come per le checkbox
+    #             - :campo=>[:ciao,:pippo,:pluto] -> nested forms
     def show
       if model.is_a?(Hash)
         #devo nestarlo
