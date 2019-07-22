@@ -23,7 +23,12 @@ module KonoUtils::Object::Cell::Forms # namespace
         end
         bf
       else
-        form.input model
+        # decidiamo se renderizzare un'associazione o meno
+        if form.object.class.reflect_on_association(model)
+          form.association model
+        else
+          form.input model
+        end
       end
     end
 
