@@ -18,20 +18,38 @@ module KonoUtils::Object::Cell::Forms # namespace
             bf.safe_concat(concept(base_class.concept_ns("cell/forms/field"), k).to_s)
           else
             #caso in cui potremmo essere in un campo di multipli elementi con vari valori ognuno
-            bf << nest_editing_form_print_field(form, k, v)
+            bf.safe_concat(concept(base_class.concept_ns("cell/forms/fields/nested"), k, fields: v).to_s)
           end
         end
         bf
       else
         # decidiamo se renderizzare un'associazione o meno
         if form.object.class.reflect_on_association(model)
-          form.association model
+          concept(base_class.concept_ns("cell/forms/fields/association"), model)
         else
-          form.input model
+          concept(base_class.concept_ns("cell/forms/fields/base"), model)
         end
       end
     end
 
+
+      ##
+      # Questa funzione può essere sovrascritta per gestire in modo personale la renderizzazine dei nested attributes
+      # * *Attributes*  :
+      #   - form              -> form di formtastic
+      #   - contenitore       -> campo principale
+      #   - campi             -> i campi interni
+      # def nest_editing_form_print_field(form, contenitore, campi)
+      #   form.simple_fields_for contenitore do |item|
+      #     item.inputs :name => t(".#{form.object.mn}.#{contenitore}", :default => contenitore.to_s.camelcase) do
+      #       bf = ActiveSupport::SafeBuffer.new
+      #       campi.each do |c|
+      #         bf << editing_form_print_field(item, c)
+      #       end
+      #       bf
+      #     end
+      #   end
+      # end
 
   end
 end
