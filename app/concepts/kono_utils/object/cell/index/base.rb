@@ -3,7 +3,7 @@ module KonoUtils::Object::Cell # namespace
 
 
     def table_columns
-      policy(base_class.new).permitted_attributes
+      policy(base_class.new).show_attributes
     end
 
   end

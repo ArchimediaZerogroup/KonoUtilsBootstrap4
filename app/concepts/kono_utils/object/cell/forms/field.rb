@@ -15,7 +15,7 @@ module KonoUtils::Object::Cell::Forms # namespace
         model.each do |k, v|
           if v.length == 0
             #caso in cui è un elemento normale, ma che ha una selezione multipla
-            bf << editing_form_print_field(form, k)
+            bf.safe_concat(concept(base_class.concept_ns("cell/forms/field"), k).to_s)
           else
             #caso in cui potremmo essere in un campo di multipli elementi con vari valori ognuno
             bf << nest_editing_form_print_field(form, k, v)
