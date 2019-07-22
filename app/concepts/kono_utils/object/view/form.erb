@@ -4,12 +4,12 @@
     <% form_attributes.each do |field| %>
 
       <div class="<%= cell_column_class(field) %>">
-        <%= editing_form_print_field(f, field) %>
+        <%= concept(base_class.concept_ns("cell/forms/field"), field, context: {form: f}) %>
       </div>
 
     <% end %>
   </div>
 
-  <%= concept(base_class.concept_ns("cell/forms/submit"), f) %>
+  <%= concept(base_class.concept_ns("cell/forms/submit"), nil, context: {form: f}) %>
 
 <% end %>

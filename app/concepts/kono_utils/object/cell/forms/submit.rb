@@ -14,7 +14,7 @@ module KonoUtils::Object::Cell::Forms # namespace
     end
 
     def show
-      model.button :submit, btn_options
+      form.button :submit, btn_options
     end
 
 
