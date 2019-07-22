@@ -9,4 +9,7 @@
 #
 
 class ContactTipology < ApplicationRecord
+
+
+
 end

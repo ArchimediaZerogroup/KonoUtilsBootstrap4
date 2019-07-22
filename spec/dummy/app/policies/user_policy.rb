@@ -2,7 +2,7 @@ class UserPolicy < BaseEditingPolicy
 
 
   def editable_attributes
-    super - [:category_id] + [:category, :tags] #+ [contacts: [:tipology, :val]]
+    super - [:category_id] + [:category, :tags, contacts: Pundit.policy!(user,Contact.new).editable_attributes - [:user_id]]
   end
 
   def permitted_attributes
