@@ -5,6 +5,7 @@ module KonoUtils::Object::Cell # namespace
     include ActionView::Helpers::FormHelper
     include SimpleForm::ActionViewExtensions::FormHelper
     include ActionView::Helpers::DateHelper
+    include ActionView::Helpers::FormOptionsHelper
 
 
     def forms_options
