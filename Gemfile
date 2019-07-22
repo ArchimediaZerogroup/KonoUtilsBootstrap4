@@ -14,9 +14,12 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+# gemme per dummy
 gem 'listen'
+gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 
 
+# Temporaneo di sviluppo
 gem 'kono_utils', path: "../KonoUtils"
 gem 'kono_utils_helpers', path: "../kono_utils_helpers"
 
