@@ -19,6 +19,8 @@ gem 'listen'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 gem 'annotate'
 gem 'thin'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 
 # Temporaneo di sviluppo
