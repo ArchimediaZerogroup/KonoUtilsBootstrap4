@@ -14,7 +14,7 @@ module KonoUtils::Object::Cell # namespace
 
 
     def form_attributes
-      policy(model).permitted_attributes
+      policy(model).editable_attributes
     end
 
     def cell_column_class(field)

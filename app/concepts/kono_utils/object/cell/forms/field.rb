@@ -12,8 +12,6 @@ module KonoUtils::Object::Cell::Forms # namespace
         #devo nestarlo
         bf = ActiveSupport::SafeBuffer.new
 
-        raise model.inspect
-
         model.each do |k, v|
           if v.length == 0
             #caso in cui è un elemento normale, ma che ha una selezione multipla
