@@ -4,6 +4,10 @@ class Users::Cell::Forms::Field < KonoUtils::Object::Cell::Forms::Field
     case model
     when :birthdate
       content_tag :span,'ciao'
+    when :tags
+
+      form.association model, as: :check_boxes
+
     else
       super
     end

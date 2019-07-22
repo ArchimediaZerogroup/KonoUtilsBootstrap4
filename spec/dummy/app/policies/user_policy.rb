@@ -2,9 +2,12 @@ class UserPolicy < BaseEditingPolicy
 
 
   def editable_attributes
-    super - [:category_id] + [:category]
+    super - [:category_id] + [:category, :tags] #+ [contacts: [:tipology, :val]]
   end
 
+  def permitted_attributes
+    super + [tag_ids: []]
+  end
 
   def index?
     true
