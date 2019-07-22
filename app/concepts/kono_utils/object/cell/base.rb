@@ -7,6 +7,10 @@ module KonoUtils::Object::Cell # namespace
     include Kaminari::Cells
     include FontAwesome::Rails::IconHelper
 
+    load('action_view/helpers/form_helper.rb')
+    include ActionView::Helpers::FormHelper
+    include SimpleForm::ActionViewExtensions::FormHelper
+
     ##
     # Helpers di controller
     delegates :parent_controller, :base_class
@@ -14,7 +18,6 @@ module KonoUtils::Object::Cell # namespace
     delegates :parent_controller, :edit_custom_polymorphic_path
     delegates :parent_controller, :index_custom_polymorphic_path
 
-    delegates :parent_helpers, :simple_form_for
 
     def parent_helpers
       parent_controller.helpers
@@ -48,7 +51,7 @@ module KonoUtils::Object::Cell # namespace
       "#{t(:del)} #{model.mn}"
     end
 
-    def title_mod_g
+    def title_edit_g
       "#{t("edit_title_#{model_gender}", default: 'Modifica')} #{model.mn}"
     end
 
