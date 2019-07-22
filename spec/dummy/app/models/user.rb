@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                    :integer          not null, primary key
+#  username              :string
+#  surname               :string
+#  email                 :string
+#  bio                   :text
+#  category_id           :integer
+#  birthdate             :date
+#  registration_datetime :datetime
+#  birttime              :time
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
 class User < ApplicationRecord
 
   validates :email, :presence => true
