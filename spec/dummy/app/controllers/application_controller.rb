@@ -18,5 +18,6 @@ class ApplicationController < ActionController::Base
   def generate_categories
     #popolo le categorie se non presenti
     Category.create([{name: 'prima'}, {name: 'seconda'}, {name: 'terza'}]) if Category.count == 0
+    ContactTipology.create([{name: 'Tel'}, {name: 'Cell'}, {name: 'Email'}]) if ContactTipology.count == 0
   end
 end
