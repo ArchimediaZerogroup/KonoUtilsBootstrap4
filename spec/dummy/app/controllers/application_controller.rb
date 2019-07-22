@@ -19,5 +19,6 @@ class ApplicationController < ActionController::Base
     #popolo le categorie se non presenti
     Category.create([{name: 'prima'}, {name: 'seconda'}, {name: 'terza'}]) if Category.count == 0
     ContactTipology.create([{name: 'Tel'}, {name: 'Cell'}, {name: 'Email'}]) if ContactTipology.count == 0
+    Tag.create([{name: 'studente'}, {name: 'straniero'}, {name: 'maschio'}, {name: 'femmina'}]) if Tag.count == 0
   end
 end
