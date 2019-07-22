@@ -1,6 +1,11 @@
 module KonoUtils::Object::Cell # namespace
   class Form < Base
 
+    load('action_view/helpers/form_helper.rb')
+    include ActionView::Helpers::FormHelper
+    include SimpleForm::ActionViewExtensions::FormHelper
+    include ActionView::Helpers::DateHelper
+
 
     def forms_options
       [model]
@@ -26,12 +31,12 @@ module KonoUtils::Object::Cell # namespace
         bf = ActiveSupport::SafeBuffer.new
 
         field.each do |k, v|
-          if v.length==0
+          if v.length == 0
             #caso in cui è un elemento normale, ma che ha una selezione multipla
-            bf<< editing_form_print_field(form, k)
+            bf << editing_form_print_field(form, k)
           else
             #caso in cui potremmo essere in un campo di multipli elementi con vari valori ognuno
-            bf<< nest_editing_form_print_field(form, k, v)
+            bf << nest_editing_form_print_field(form, k, v)
           end
         end
         bf

@@ -7,9 +7,7 @@ module KonoUtils::Object::Cell # namespace
     include Kaminari::Cells
     include FontAwesome::Rails::IconHelper
 
-    load('action_view/helpers/form_helper.rb')
-    include ActionView::Helpers::FormHelper
-    include SimpleForm::ActionViewExtensions::FormHelper
+
 
     ##
     # Helpers di controller
