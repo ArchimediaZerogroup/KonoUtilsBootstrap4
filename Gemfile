@@ -17,6 +17,7 @@ gemspec
 # gemme per dummy
 gem 'listen'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
+gem 'annotate'
 
 
 # Temporaneo di sviluppo
