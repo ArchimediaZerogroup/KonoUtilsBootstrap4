@@ -8,7 +8,6 @@ module KonoUtils::Object::Cell # namespace
     include FontAwesome::Rails::IconHelper
 
 
-
     ##
     # Helpers di controller
     delegates :parent_controller, :base_class
@@ -22,7 +21,11 @@ module KonoUtils::Object::Cell # namespace
     end
 
 
+    alias_method :legacy_concept, :concept
 
+    def concept(name, model = nil, options = {})
+      legacy_concept(base_class.concept_ns(name), model, options)
+    end
 
 
     def _prefixes

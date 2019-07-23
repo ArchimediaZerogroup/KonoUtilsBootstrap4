@@ -1,9 +1,9 @@
 <%= pagination_top %>
 
 <table class="table table-bordered table-hover">
-  <thead><%= concept(base_class.concept_ns("cell/index/row_header")) %></thead>
-  <tbody><%= concept(base_class.concept_ns("cell/index/row"), collection: model) %></tbody>
-  <tfoot><%= concept(base_class.concept_ns("cell/index/row_footer")) %></tfoot>
+  <thead><%= concept("cell/index/row_header") %></thead>
+  <tbody><%= concept("cell/index/row", collection: model) %></tbody>
+  <tfoot><%= concept("cell/index/row_footer") %></tfoot>
 </table>
 
 <%= pagination_bottom %>
