@@ -3,9 +3,7 @@ module KonoUtilsBootstrapView4
   class InstallGenerator < Rails::Generators::Base
     desc "Installa l'inizializzatore"
 
-    def self.source_root
-      @source_root ||= File.expand_path('../../../templates', __FILE__)
-    end
+    source_root File.expand_path('../templates', __FILE__)
 
     def install_kono_utils
       run "rails g kono_utils:install"
