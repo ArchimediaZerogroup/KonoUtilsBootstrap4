@@ -18,10 +18,6 @@ module KonoUtils::Object::Cell # namespace
       parent_controller.send(:base_class)
     end
 
-    def parent_helpers
-      parent_controller.helpers
-    end
-
 
     alias_method :legacy_concept, :concept
 
