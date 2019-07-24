@@ -11,6 +11,7 @@ module KonoUtils::Object::Cell::Forms # namespace
     #             - :campo=>[] -> come per le checkbox
     #             - :campo=>[:ciao,:pippo,:pluto] -> nested forms
     def get_field
+      Rails.logger.debug {"SELECT_FIELD:#{form.object.class.name}->#{model}"}
       if model.is_a?(Hash)
         #devo nestarlo
         bf = ActiveSupport::SafeBuffer.new
