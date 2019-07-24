@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_095710) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "tipology_id"
+    t.integer "contact_tipology_id"
     t.string "val"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

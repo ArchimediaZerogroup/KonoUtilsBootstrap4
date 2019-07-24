@@ -10,7 +10,7 @@ module KonoUtils::Object::Cell::Forms # namespace
     # - has_many:
     #             - :campo=>[] -> come per le checkbox
     #             - :campo=>[:ciao,:pippo,:pluto] -> nested forms
-    def show
+    def get_field
       if model.is_a?(Hash)
         #devo nestarlo
         bf = ActiveSupport::SafeBuffer.new

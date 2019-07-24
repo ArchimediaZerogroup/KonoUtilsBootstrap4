@@ -1,11 +1,7 @@
-<% form.simple_fields_for(model) do |inside_form| %>
+<%= form.label model %>
 
-  <%= form.label model %>
-
-  <% inner_fields.each do |f| %>
-    <%= concept("cell/forms/field_selector", f, context: {form: inside_form}) %>
-  <% end %>
-
+<% inner_fields.each do |f| %>
+  <%= concept("cell/forms/field_selector", f, context: {form: inside_form}) %>
 <% end %>
 
 

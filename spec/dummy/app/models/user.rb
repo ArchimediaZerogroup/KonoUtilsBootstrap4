@@ -26,6 +26,6 @@ class User < ApplicationRecord
 
 
   has_many :contacts
-  accepts_nested_attributes_for :contacts
+  accepts_nested_attributes_for :contacts,reject_if: :all_blank
 
 end

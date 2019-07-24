@@ -3,7 +3,16 @@ module KonoUtils::Object::Cell::Forms # namespace
   class Fields::Base < Base
 
     def field_options
-      options[:field_options] || {}
+      base_field_options.merge(options[:field_options] || {})
+    end
+
+
+    def base_field_options
+      out = {}
+
+      out[:as] = :hidden if model.to_s == 'id'
+
+      out
     end
 
   end

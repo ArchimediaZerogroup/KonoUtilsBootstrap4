@@ -10,11 +10,13 @@ module KonoUtils::Object::Cell # namespace
 
     ##
     # Helpers di controller
-    delegates :parent_controller, :base_class
     delegates :parent_controller, :new_custom_polymorphic_path
     delegates :parent_controller, :edit_custom_polymorphic_path
     delegates :parent_controller, :index_custom_polymorphic_path
 
+    def base_class
+      parent_controller.send(:base_class)
+    end
 
     def parent_helpers
       parent_controller.helpers

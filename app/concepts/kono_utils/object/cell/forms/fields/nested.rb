@@ -1,11 +1,20 @@
 module KonoUtils::Object::Cell::Forms::Fields # namespace
   # La cella base dei componenti della form contiene sempre la form come model
+  # la base class di un nested diventa il modello della relazione
   class Nested < Base
 
 
-    def show
+    alias_method :parent_base_class, :base_class
+    def base_class
+      form.object.class.reflect_on_association(model).klass
+    end
+
+
+    def show(&block)
       initialize_first_nested
-      super
+      form.simple_fields_for(model) do |inside_form|
+        render({locals: {inside_form: inside_form}}, &block).html_safe
+      end
     end
 
     ##
