@@ -8,6 +8,12 @@ module KonoUtils::Object::Cell # namespace
       context[:form]
     end
 
+    ##
+    # Campo del record da visualizzare nella form
+    def attribute_name
+      model.name
+    end
+
 
   end
 end

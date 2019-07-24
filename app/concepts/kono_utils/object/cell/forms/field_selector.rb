@@ -7,30 +7,15 @@ module KonoUtils::Object::Cell::Forms # namespace
     ##
     # Questa funzione serve per essere sovrascritta dal field generico nella cella specifica del modello
     # e quindi stampare un determinato campo in modo differente
-    # si occupa anche di gestire i campi provenienti dalla policy nel caso siano a più livelli con i nested
-    # prendiamo in considerazione le situazioni con
-    # - has_many:
-    #             - :campo=>[] -> come per le checkbox
-    #             - :campo=>[:ciao,:pippo,:pluto] -> nested forms
+    # Viene normalizzato il campo in model contenente il KonoUtilsBootstrapView4::EditableField
     def get_field
       Rails.logger.debug {"SELECT_FIELD:#{form.object.class.name}->#{model}"}
-      if model.is_a?(Hash)
+      if model.is_nested?
         #devo nestarlo
-        bf = ActiveSupport::SafeBuffer.new
-
-        model.each do |k, v|
-          if v.length == 0
-            #caso in cui è un elemento normale, ma che ha una selezione multipla
-            bf.safe_concat(concept("cell/forms/field", k).to_s)
-          else
-            #caso in cui potremmo essere in un campo di multipli elementi con vari valori ognuno
-            bf.safe_concat(concept("cell/forms/fields/nested", k, fields: v).to_s)
-          end
-        end
-        bf
+        concept("cell/forms/fields/nested", model)
       else
         # decidiamo se renderizzare un'associazione o meno
-        if form.object.class.reflect_on_association(model)
+        if form.object.class.reflect_on_association(model.name)
           concept("cell/forms/fields/association", model)
         else
           concept("cell/forms/fields/base", model)
