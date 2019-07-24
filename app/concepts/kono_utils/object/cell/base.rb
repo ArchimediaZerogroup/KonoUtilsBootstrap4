@@ -15,7 +15,7 @@ module KonoUtils::Object::Cell # namespace
     delegates :parent_controller, :index_custom_polymorphic_path
 
     def base_class
-      parent_controller.send(:base_class)
+      @_base_class ||= parent_controller.send(:base_class)
     end
 
 
