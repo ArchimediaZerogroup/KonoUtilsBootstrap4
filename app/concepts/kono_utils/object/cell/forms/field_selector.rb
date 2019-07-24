@@ -12,7 +12,7 @@ module KonoUtils::Object::Cell::Forms # namespace
       Rails.logger.debug {"SELECT_FIELD:#{form.object.class.name}->#{model}"}
       if model.is_nested?
         #devo nestarlo
-        concept("cell/forms/fields/nested", model)
+        concept("cell/forms/fields/nested_wrapper", model)
       else
         # decidiamo se renderizzare un'associazione o meno
         if form.object.class.reflect_on_association(model.name)

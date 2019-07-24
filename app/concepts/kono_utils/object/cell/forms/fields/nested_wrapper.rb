@@ -1,10 +1,11 @@
 module KonoUtils::Object::Cell::Forms::Fields # namespace
   # La cella base dei componenti della form contiene sempre la form come model
   # la base class di un nested diventa il modello della relazione
-  class Nested < Base
+  class NestedWrapper < Base
 
 
     alias_method :parent_base_class, :base_class
+
     def base_class
       form.object.class.reflect_on_association(attribute_name).klass
     end
@@ -12,8 +13,15 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
     def show(&block)
       initialize_first_nested
+      super
+    end
+
+    # causa di una stranezza di simple form che non ritiene safe il contenuto passato
+    def inner_form_block
       form.simple_fields_for(attribute_name) do |inside_form|
-        render({locals: {inside_form: inside_form}}, &block).html_safe
+        capture do
+          yield(inside_form)
+        end.html_safe
       end
     end
 
