@@ -14,7 +14,7 @@ module KonoUtils::Object::Cell # namespace
 
 
     def form_attributes
-      policy(model).editable_attributes
+      policy(model).editable_attributes.collect{|s| KonoUtilsBootstrapView4::EditableField.new(s)}
     end
 
     def cell_column_class(field)

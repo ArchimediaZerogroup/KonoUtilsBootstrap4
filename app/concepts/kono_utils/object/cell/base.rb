@@ -21,8 +21,10 @@ module KonoUtils::Object::Cell # namespace
 
     alias_method :legacy_concept, :concept
 
-    def concept(name, model = nil, options = {})
-      legacy_concept(base_class.concept_ns(name), model, options)
+    # def concept(name, model = nil, options = {}, &block)
+    def concept(name, *args, &block)
+      Rails.logger.debug{"SIAMO QUA:#{block.inspect}"}
+      legacy_concept(base_class.concept_ns(name),*args, &block)
     end
 
 

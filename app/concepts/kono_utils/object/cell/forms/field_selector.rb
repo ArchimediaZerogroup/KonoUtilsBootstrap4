@@ -1,5 +1,7 @@
 module KonoUtils::Object::Cell::Forms # namespace
   # Classe che si occupa di selezionare il campo corretto nella form
+  #
+  # il model sarà un KonoUtilsBootstrapView4::EditableField
   class FieldSelector < Base
 
     ##

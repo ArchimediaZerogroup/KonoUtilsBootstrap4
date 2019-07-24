@@ -5,5 +5,6 @@ module KonoUtilsBootstrapView4
 
   autoload :PaginateProxer
   autoload :BaseClassConceptNs
+  autoload :EditableField
 
 end
