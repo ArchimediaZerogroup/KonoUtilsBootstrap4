@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_095710) do
     t.integer "user_id"
     t.integer "contact_tipology_id"
     t.string "val"
+    t.boolean "principal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

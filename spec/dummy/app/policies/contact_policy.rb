@@ -2,7 +2,7 @@ class ContactPolicy < BaseEditingPolicy
 
 
   def editable_attributes
-    super - [:contact_tipology_id] + [:contact_tipology]
+    super - [:contact_tipology_id, :principal] + [:contact_tipology]
   end
 
   def index?

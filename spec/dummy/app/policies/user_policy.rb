@@ -2,11 +2,22 @@ class UserPolicy < BaseEditingPolicy
 
 
   def editable_attributes
-    super - [:category_id] + [:category, :tags, contacts: Pundit.policy!(user, Contact.new).editable_attributes - [:user_id] + [:id]]
+
+    contact_attributes = Pundit.policy!(user, Contact.new).editable_attributes - [:user_id] + [:id]
+
+    super -
+      [:category_id] +
+      [
+        :category,
+        :tags,
+        principal_contact: contact_attributes,
+        contacts: contact_attributes
+      ]
   end
 
   def permitted_attributes
-    super + [tag_ids: [], contacts_attributes: Pundit.policy!(user, Contact.new).permitted_attributes - [:user_id] + [:id]]
+    contact_attributes = Pundit.policy!(user, Contact.new).permitted_attributes - [:user_id] + [:id]
+    super + [tag_ids: [], principal_contact_attributes: contact_attributes, contacts_attributes: contact_attributes]
   end
 
   def index?

@@ -4,6 +4,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :contact_tipology_id
       t.string :val
+      t.boolean :principal
 
       t.timestamps
     end
