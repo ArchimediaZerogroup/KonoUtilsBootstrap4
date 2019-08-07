@@ -10,12 +10,20 @@ module KonoUtils::Object::Cell # namespace
 
     ##
     # Helpers di controller
-    delegates :parent_controller, :new_custom_polymorphic_path
-    delegates :parent_controller, :edit_custom_polymorphic_path
-    delegates :parent_controller, :index_custom_polymorphic_path
-
-    def base_class
+    def base_class  
       @_base_class ||= parent_controller.send(:base_class)
+    end
+
+    def new_custom_polymorphic_path(*base_class)
+      parent_controller.send(:new_custom_polymorphic_path, *base_class)
+    end
+
+    def edit_custom_polymorphic_path(*rec)
+      parent_controller.send(:edit_custom_polymorphic_path, *rec)
+    end
+
+    def index_custom_polymorphic_path(*rec)
+      parent_controller.send(:index_custom_polymorphic_path, *rec)
     end
 
 
@@ -23,8 +31,7 @@ module KonoUtils::Object::Cell # namespace
 
     # def concept(name, model = nil, options = {}, &block)
     def concept(name, *args, &block)
-      Rails.logger.debug{"SIAMO QUA:#{block.inspect}"}
-      legacy_concept(base_class.concept_ns(name),*args, &block)
+      legacy_concept(base_class.concept_ns(name), *args, &block)
     end
 
 
