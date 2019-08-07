@@ -22,10 +22,14 @@ module KonoUtilsBootstrapView4
     end
 
     class_option :field_selector, type: :boolean, default: false, desc: "Copia il template per il selettore dei campi"
+    class_option :form, type: :boolean, default: false, desc: "Copia il template della form"
 
     def copy_templates
       if options.field_selector
-        template 'field_selector.template', File.join(path, "cell","forms", "field_selector.rb")
+        template 'forms/field_selector.template', File.join(path, "cell","forms", "field_selector.rb")
+      end
+      if options.form
+        template 'form.template', File.join(path, "cell","form.rb")
       end
     end
 
