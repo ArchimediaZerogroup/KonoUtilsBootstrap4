@@ -10,7 +10,7 @@ module KonoUtils::Object::Cell # namespace
 
     ##
     # Helpers di controller
-    def base_class  
+    def base_class
       @_base_class ||= parent_controller.send(:base_class)
     end
 
