@@ -13,5 +13,6 @@
 class Contact < ApplicationRecord
 
   belongs_to :contact_tipology
+  belongs_to :user
 
 end
