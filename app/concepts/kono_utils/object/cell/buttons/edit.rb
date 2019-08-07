@@ -2,7 +2,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
   class Edit < Base
 
     def url_to
-      edit_custom_polymorphic_path(model)
+      options[:url_to]||edit_custom_polymorphic_path(model)
     end
 
     def show

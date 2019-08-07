@@ -2,7 +2,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
   class Delete < Base
 
     def url_to
-      index_custom_polymorphic_path(model)
+      options[:url_to]||index_custom_polymorphic_path(model)
     end
 
     def show

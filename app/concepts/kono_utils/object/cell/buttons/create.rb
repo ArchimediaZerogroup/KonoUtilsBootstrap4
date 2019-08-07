@@ -2,7 +2,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
   class Create < Base
 
     def url_to
-      new_custom_polymorphic_path(model)
+      options[:url_to]||new_custom_polymorphic_path(model)
     end
 
 
@@ -17,7 +17,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     end
 
     def show
-      link_to(fa_icon("plus fw"), new_custom_polymorphic_path(base_class), btn_opts)
+      link_to(fa_icon("plus fw"), url_to, btn_opts)
     end
 
   end
