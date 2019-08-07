@@ -1,7 +1,13 @@
 <%= form.label attribute_name %>
 
 <% if build_new_nested? %>
-  <%= concept("cell/buttons/create", base_class.new,
-              url_to: new_custom_polymorphic_path([form.object, base_class.new]),
-              button_options: {class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}"}) if policy(base_class.new).create? %>
+  <% if policy(base_class.new).create? %>
+    <%= concept("cell/buttons/create", base_class.new,
+                url_to: new_custom_polymorphic_path([form.object, base_class.new]),
+                button_options: {
+                  class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}",
+                  remote: true
+                }
+        ) %>
+  <% end %>
 <% end %>
