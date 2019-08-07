@@ -4,7 +4,7 @@ module KonoUtils::Object::Cell::Index # namespace
     ##
     # Questa funzione serve per stampare il contenuto dell'header
     def print_column(field)
-      block_given? ? yield(field) : base_class.han(field)
+      block_given? ? capture { yield(field) } : base_class.han(field)
     end
 
   end

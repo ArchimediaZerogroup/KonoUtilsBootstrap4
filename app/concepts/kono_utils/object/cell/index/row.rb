@@ -23,7 +23,9 @@ module KonoUtils::Object::Cell::Index # namespace
         column_id = "#{column_class}-#{dom_id(model)}"
       end
       content_tag column, class: column_class, id: column_id do
-        yield column_class, column_id
+        capture do
+          yield column_class, column_id
+        end.html_safe
       end
     end
 
