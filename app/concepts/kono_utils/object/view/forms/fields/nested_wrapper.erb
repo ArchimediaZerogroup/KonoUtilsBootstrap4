@@ -1,11 +1,10 @@
+<%= form.label attribute_name %>
 <%= inner_form_block do |inside_form| %>
-
-  <%= form.label attribute_name %>
-
-  <% inner_fields.each do |f| %>
-    <%= concept("cell/forms/field_selector", f, context: {form: inside_form}) %>
-  <% end %>
-  
+  <div class="kono_utils_single_nested_container <%= dom_class(inside_form.object,dom_class(form.object)) %>" id="<%= dom_id(inside_form.object,dom_id(form.object)) %>">
+    <% inner_fields.each do |f| %>
+      <%= concept("cell/forms/field_selector", f, context: {form: inside_form}) %>
+    <% end %>
+  </div>
 <% end %>
 
 
