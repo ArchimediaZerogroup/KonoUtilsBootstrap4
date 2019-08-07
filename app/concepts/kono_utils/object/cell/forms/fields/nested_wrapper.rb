@@ -7,7 +7,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     alias_method :parent_base_class, :base_class
 
     def base_class
-      form.object.class.reflect_on_association(attribute_name).klass
+      reflection_association.klass
     end
 
 
@@ -34,7 +34,20 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
 
     def initialize_first_nested
-      form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
+      case reflection_association.macro
+      when :has_one
+        form.object.send("build_#{attribute_name}") if form.object.send(attribute_name).nil?
+      when :has_many
+        form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
+      else
+        raise "not defined - #{reflection_association.macro}"
+      end
+    end
+
+    private
+
+    def reflection_association
+      form.object.class.reflect_on_association(attribute_name)
     end
 
   end
