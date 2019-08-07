@@ -3,10 +3,19 @@
 <% if build_new_nested? %>
   <% if policy(base_class.new).create? %>
     <%= concept("cell/buttons/create", base_class.new,
-                url_to: new_custom_polymorphic_path([form.object, base_class.new]),
+                url_to: new_custom_polymorphic_path(
+                  [form.object, base_class.new],
+                  format: :inject,
+                  kono_utils: {content_selector: new_id_content_selector}
+                ),
                 button_options: {
                   class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}",
-                  remote: true
+                  remote: true,
+                  data: {
+                    kono_utils: {
+                      content_selector: new_id_content_selector
+                    }
+                  }
                 }
         ) %>
   <% end %>

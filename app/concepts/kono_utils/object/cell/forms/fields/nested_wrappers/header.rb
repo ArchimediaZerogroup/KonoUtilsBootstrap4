@@ -25,5 +25,12 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       end
     end
 
+    ##
+    # Funzione che si occupa di generare un nuovo ID da utilizzare nella richiesta del content
+    # per sapere cosa estrapolare sucessivamente per jquery ed injettare nel target
+    def new_id_content_selector
+"ciao"
+    end
+
   end
 end
