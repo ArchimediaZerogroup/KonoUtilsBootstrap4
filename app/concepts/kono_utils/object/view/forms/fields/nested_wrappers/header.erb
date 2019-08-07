@@ -1,0 +1,6 @@
+<%= form.label attribute_name %>
+
+<% if build_new_nested? %>
+  <%= concept("cell/buttons/create", base_class.new,
+              button_options: {class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}"}) if policy(base_class.new).create? %>
+<% end %>

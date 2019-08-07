@@ -1,6 +1,7 @@
-<%= form.label attribute_name %>
+<%= concept("cell/forms/fields/nested_wrappers/header", model, context: {form: form, parent_cell: self}) %>
+
 <%= inner_form_block do |inside_form| %>
-  <div class="kono_utils_single_nested_container <%= dom_class(inside_form.object,dom_class(form.object)) %>" id="<%= dom_id(inside_form.object,dom_id(form.object)) %>">
+  <div class="kono_utils_single_nested_container <%= dom_class(inside_form.object, dom_class(form.object)) %>" id="<%= dom_id(inside_form.object, dom_id(form.object)) %>">
     <% inner_fields.each do |f| %>
       <%= concept("cell/forms/field_selector", f, context: {form: inside_form}) %>
     <% end %>

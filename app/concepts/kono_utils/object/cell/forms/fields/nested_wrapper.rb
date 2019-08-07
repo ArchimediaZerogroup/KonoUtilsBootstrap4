@@ -33,6 +33,12 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     end
 
 
+    ##
+    # Inizializza un nuovo record se necessario.
+    # Si basa sulla reflection dell'associazione.
+    # reflections supportate:
+    # - has_one
+    # - has_many
     def initialize_first_nested
       case reflection_association.macro
       when :has_one
@@ -44,7 +50,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       end
     end
 
-    private
+    protected
 
     def reflection_association
       form.object.class.reflect_on_association(attribute_name)
