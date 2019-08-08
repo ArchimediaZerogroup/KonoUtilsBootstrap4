@@ -57,7 +57,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
 
     def target_container_for_new_nested
-      @_unique ||= SecureRandom.uuid #FIXME
+      @_unique ||= SecureRandom.uuid
     end
 
     protected
