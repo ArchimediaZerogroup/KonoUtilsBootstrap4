@@ -17,11 +17,13 @@ module KonoUtilsBootstrapView4
 
         ns = "#{tableize(self.name)}/#{view}"
 
-        logger.debug { "RICERCA OVERRIDE PER CLASSE: #{ns.camelize} --->>>" }
 
-        return ns if safe_constantize(ns.camelize)
+        if safe_constantize(ns.camelize)
+          logger.debug { "TROVAVA CLASSE PER : #{ns.camelize} --->>>" }
+          return ns
+        end
 
-        logger.debug { "TROVATA <<<<<---- #{ns.camelize} " }
+        logger.debug { "NON TROVATA PER  <<<<<---- #{ns.camelize} " }
 
         "kono_utils/object/#{view}"
       end
