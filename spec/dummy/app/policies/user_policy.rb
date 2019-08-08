@@ -3,7 +3,7 @@ class UserPolicy < BaseEditingPolicy
 
   def editable_attributes
 
-    contact_attributes = Pundit.policy!(user, Contact.new).editable_attributes - [:user_id] + [:id]
+    contact_attributes = Pundit.policy!(user, Users::Contact.new).editable_attributes
 
     super -
       [:category_id] +
@@ -16,7 +16,7 @@ class UserPolicy < BaseEditingPolicy
   end
 
   def permitted_attributes
-    contact_attributes = Pundit.policy!(user, Contact.new).permitted_attributes - [:user_id] + [:id]
+    contact_attributes = Pundit.policy!(user, Users::Contact.new).permitted_attributes
     super + [tag_ids: [], principal_contact_attributes: contact_attributes, contacts_attributes: contact_attributes]
   end
 
