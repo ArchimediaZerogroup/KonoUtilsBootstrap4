@@ -27,7 +27,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
     ##
     # Per i nested abbiamo un elenco di campi da visualizzare,
-    # questo elenco ci viene fornito tramite options
+    # questo elenco ci viene fornito tramite il modello EditableField, il quale elabora rispetto ai nested delle policy
     def inner_fields
       model.inner_fields
     end
