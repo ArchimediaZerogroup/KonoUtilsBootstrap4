@@ -3,7 +3,6 @@ module KonoUtilsBootstrapView4
 
     require 'trailblazer/cells'
     require 'cell/erb'
-    require 'cell/rails'
     require 'kaminari'
     require 'kaminari/actionview/action_view_extension'
     require 'font-awesome-rails'
@@ -21,11 +20,20 @@ module KonoUtilsBootstrapView4
       end
     end
 
-    initializer 'kono_utils_bootstrap_view4.append_cell_assets', before: "cells.update_asset_paths", :group => :all do |app|
-      app.config.cells.with_assets = [] if app.config.cells.with_assets.nil?
-      app.config.cells.with_assets += [
-        "kono_utils/object/cell/form"
-      ]
+    initializer 'kono_utils_bootstrap_view4.append_cell_assets', :group => :all do |app|
+      # app.config.cells.with_assets = [] if app.config.cells.with_assets.nil?
+      # app.config.cells.with_assets += [
+      #   "kono_utils/object/cell/form"
+      # ]
+
+      Array([
+              "kono_utils/object/cell/form"
+            ]).each do |cell_class|
+        puts "@@@@@ #{cell_class.camelize.constantize.prefixes}"
+        app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes
+      end
+
+
       Rails.logger.warn { "config.assets.initialize_on_precompile should be true" } unless app.config.assets.initialize_on_precompile == true
     end
 
