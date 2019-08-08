@@ -1,0 +1,9 @@
+<div class="row">
+  <% form_attributes.each do |field| %>
+
+    <div class="<%= cell_column_class(field) %>">
+      <%= concept("cell/forms/field_selector", field, context: {form: form}) %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,14 +1,6 @@
 <%= simple_form_for(*forms_options) do |f| %>
 
-  <div class="row">
-    <% form_attributes.each do |field| %>
-
-      <div class="<%= cell_column_class(field) %>">
-        <%= concept("cell/forms/field_selector", field, context: {form: f}) %>
-      </div>
-
-    <% end %>
-  </div>
+  <%= concept("cell/forms/container", model, context: {form: f}) %>
 
   <%= concept("cell/forms/submit", nil, context: {form: f}) %>
 
