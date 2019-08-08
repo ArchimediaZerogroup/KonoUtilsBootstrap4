@@ -6,16 +6,11 @@
                 url_to: new_custom_polymorphic_path(
                   [form.object, base_class.new],
                   format: :inject,
-                  kono_utils: {content_selector: new_id_content_selector}
+                  kono_utils: {target_container: "##{target_container_for_new_nested}"}
                 ),
                 button_options: {
                   class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}",
-                  remote: true,
-                  data: {
-                    kono_utils: {
-                      content_selector: new_id_content_selector
-                    }
-                  }
+                  remote: true
                 }
         ) %>
   <% end %>

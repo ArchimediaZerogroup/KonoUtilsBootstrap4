@@ -6,6 +6,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
     delegates :parent_cell, :reflection_association
     delegates :parent_cell, :base_class
+    delegates :parent_cell, :target_container_for_new_nested
 
     def parent_cell
       context[:parent_cell]
@@ -23,13 +24,6 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       else
         false
       end
-    end
-
-    ##
-    # Funzione che si occupa di generare un nuovo ID da utilizzare nella richiesta del content
-    # per sapere cosa estrapolare sucessivamente per jquery ed injettare nel target
-    def new_id_content_selector
-"ciao"
     end
 
   end

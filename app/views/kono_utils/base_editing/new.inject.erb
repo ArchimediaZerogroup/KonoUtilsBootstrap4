@@ -1,0 +1,5 @@
+<% if params.dig(:kono_utils, :target_container) %>
+  $("<%= params.dig(:kono_utils, :target_container) %>").append("<%= concept(base_class.concept_ns("cell/form"), @object, context: {current_user: current_user}) %>")
+<% else %>
+  console.warn("Devi passare in params kono_utils[target_container]=valore dove valore è il selettore css in cui APPENDERE il contenuto che generiamo per la new")
+<% end %>

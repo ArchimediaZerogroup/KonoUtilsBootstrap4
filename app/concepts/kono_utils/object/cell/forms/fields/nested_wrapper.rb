@@ -50,6 +50,11 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       end
     end
 
+
+    def target_container_for_new_nested
+      'interno_nuovo_TODO' #FIXME
+    end
+
     protected
 
     def reflection_association
