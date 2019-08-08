@@ -1,0 +1,10 @@
+<script type="application/javascript">
+
+  document.getElementById("<%= unique_dom_id %>").onclick = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('a');
+    $('#<%= options[:remove_target] %>').append('ciao').hide()
+    $(this).hide();
+  }
+</script>

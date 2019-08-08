@@ -16,7 +16,7 @@ module KonoUtils::Object::Cell::Forms # namespace
     def base_field_options
       out = {}
 
-      out[:as] = :hidden if attribute_name.to_s == 'id'
+      out[:as] = :hidden if ['id', '_destroy'].include?(attribute_name.to_s)
 
       out
     end
