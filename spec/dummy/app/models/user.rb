@@ -25,10 +25,10 @@ class User < ApplicationRecord
   has_many :tags, :through => :user_tags
 
 
-  has_many :contacts, -> { where(principal: [nil, false]) }
+  has_many :contacts, -> { where(principal: [nil, false]) }, class_name: 'Users::Contact'
   accepts_nested_attributes_for :contacts, reject_if: :all_blank, allow_destroy: true
 
-  has_one :principal_contact, -> { where(principal: true) }, :class_name => "Contact"
+  has_one :principal_contact, -> { where(principal: true) }, :class_name => 'Users::Contact'
   accepts_nested_attributes_for :principal_contact, reject_if: :all_blank
 
 end
