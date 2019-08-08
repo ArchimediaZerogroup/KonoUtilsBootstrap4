@@ -22,7 +22,8 @@ class ContactPolicy < BaseEditingPolicy
   end
 
   def destroy?
-    true
+    return true unless record.persisted?
+    record.id.even?
   end
 
 end
