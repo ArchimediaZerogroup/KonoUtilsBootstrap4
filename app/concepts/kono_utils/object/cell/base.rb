@@ -11,7 +11,7 @@ module KonoUtils::Object::Cell # namespace
     ##
     # Helpers di controller
     def base_class
-      @_base_class ||= parent_controller.send(:base_class)
+      context[:base_class] || (@_base_class ||= parent_controller.send(:base_class))
     end
 
     def new_custom_polymorphic_path(*base_class)
