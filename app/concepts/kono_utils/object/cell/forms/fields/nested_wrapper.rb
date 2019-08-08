@@ -52,7 +52,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
 
     def target_container_for_new_nested
-      'interno_nuovo_TODO' #FIXME
+      @_unique ||= SecureRandom.uuid #FIXME
     end
 
     protected
