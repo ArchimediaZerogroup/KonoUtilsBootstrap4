@@ -7,6 +7,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     delegates :parent_cell, :reflection_association
     delegates :parent_cell, :base_class
     delegates :parent_cell, :target_container_for_new_nested
+    delegates :parent_cell, :has_multiple_elements?
 
     def parent_cell
       context[:parent_cell]
@@ -16,14 +17,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     # Controlla se dobbiamo renderizzare un bottone per fare la build di un nuovo record
     # @return [TrueClass|FalseClass]
     def build_new_nested?
-      case reflection_association.macro
-      when :has_one
-        false
-      when :has_many
-        true
-      else
-        false
-      end
+      has_multiple_elements?
     end
 
   end

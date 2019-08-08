@@ -32,6 +32,11 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       model.inner_fields
     end
 
+    ##
+    # Semplicemente se è un has_many ha multipli elementi, altrimenti no
+    def has_multiple_elements?
+      reflection_association.macro == :has_many
+    end
 
     ##
     # Inizializza un nuovo record se necessario.
