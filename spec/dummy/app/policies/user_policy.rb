@@ -17,7 +17,11 @@ class UserPolicy < BaseEditingPolicy
 
   def permitted_attributes
     contact_attributes = Pundit.policy!(user, Users::Contact.new).permitted_attributes
-    super + [tag_ids: [], principal_contact_attributes: contact_attributes, contacts_attributes: contact_attributes]
+    super + [
+      tag_ids: [],
+      principal_contact_attributes: contact_attributes,
+      contacts_attributes: contact_attributes
+    ]
   end
 
   def index?
