@@ -6,21 +6,32 @@ module KonoUtilsBootstrapView4
       include ActiveSupport::Inflector
 
       ##
-      # Metodo richiamato per restituire un  array di path in ciu ricercare le view prima della ricerca delle altre view
+      # Metodo richiamato per restituire un  array di path in cui ricercare le view prima della ricerca delle altre view
       # all'interno della gemma o altro, serve per poter fare override di view anche senza la presenza della relativa
       # classe Cell overridata.
       def concept_prefix
-        [Rails.application.root.join('app','concepts',tableize(self.name),'view')]
+        [Rails.application.root.join('app', 'concepts', tableize(self.name), 'view')]
       end
 
       def concept_ns(view)
 
         ns = "#{tableize(self.name)}/#{view}"
 
+        logger.debug { "RICERCA OVERRIDE PER CLASSE: #{ns.camelize} --->>>" }
+
         return ns if safe_constantize(ns.camelize)
+
+        logger.debug { "TROVATA <<<<<---- #{ns.camelize} " }
 
         "kono_utils/object/#{view}"
       end
+
+      ##
+      # Ritorna il corretto layout per il componente, tenendo conto delle view con override
+      def layout_ns(name)
+        concept_ns(name).camelize.constantize
+      end
+
     end
   end
 end
