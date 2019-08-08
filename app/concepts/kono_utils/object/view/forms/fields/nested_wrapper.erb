@@ -3,15 +3,21 @@
 <div class="kono_utils_nested_multi_container" id="<%= target_container_for_new_nested %>">
   <%= inner_form_block do |inside_form| %>
 
+    <% container_target_id = dom_id(inside_form.object, dom_id(form.object)) %>
+
     <%= concept("cell/forms/container", inside_form.object,
                 form_attributes: inner_fields,
-                container_dom_id: dom_id(inside_form.object, dom_id(form.object)),
+                container_dom_id: container_target_id,
                 container_classes: [
                   :kono_utils_single_nested_container,
                   dom_class(inside_form.object, dom_class(form.object))
                 ],
                 context: {form: inside_form}
         ) %>
+
+    <%= concept("cell/forms/fields/nested_wrappers/remove_button", inside_form.object,
+                remove_target: container_target_id,
+                context: {form: inside_form}) if policy(inside_form.object).destroy? and has_multiple_elements? %>
 
   <% end %>
 </div>
