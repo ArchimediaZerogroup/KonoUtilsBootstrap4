@@ -34,6 +34,19 @@ module KonoUtils::Object::Cell # namespace
       legacy_concept(base_class.concept_ns(name), *args, &block)
     end
 
+    delegates :base_class, :layout_ns
+    ##
+    # Custom logger interno per fare un namespace globale
+    def self.logger
+      return @_logger if @_logger
+      @_logger = ActiveSupport::TaggedLogging.new(Rails.logger)
+      @_logger.push_tags("KonoUtils") unless @_logger.formatter.current_tags.include?("KonoUtils")
+      @_logger
+    end
+
+    def logger
+      self.class.logger
+    end
 
     def _prefixes
       base_class.concept_prefix + super + parent_controller.lookup_context.view_paths.collect(&:to_path)
