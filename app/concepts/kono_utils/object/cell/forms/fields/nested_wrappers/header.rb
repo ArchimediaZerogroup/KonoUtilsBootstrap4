@@ -5,7 +5,6 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
   class NestedWrappers::Header < Base
 
     delegates :parent_cell, :reflection_association
-    delegates :parent_cell, :base_class
     delegates :parent_cell, :target_container_for_new_nested
     delegates :parent_cell, :has_multiple_elements?
 
