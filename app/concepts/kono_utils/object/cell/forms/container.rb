@@ -16,9 +16,6 @@ module KonoUtils::Object::Cell::Forms # namespace
       [:row] + (options[:container_classes] || [dom_class(form.object)])
     end
 
-    def cell_column_class(field)
-      "col-md-12"
-    end
 
   end
 end
