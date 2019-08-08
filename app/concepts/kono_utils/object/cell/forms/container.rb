@@ -2,6 +2,12 @@ module KonoUtils::Object::Cell::Forms # namespace
   # Classe che si occupa di generare il container della form
   class Container < Base
 
+    def show(&block)
+      logger.tagged(container_dom_id) do
+        super
+      end
+    end
+
     ##
     # Gli attributi da stampare sono un elenco delle options oppure estrapolati tramite la policy
     def form_attributes

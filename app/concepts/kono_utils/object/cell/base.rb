@@ -44,9 +44,7 @@ module KonoUtils::Object::Cell # namespace
       @_logger
     end
 
-    def logger
-      self.class.logger
-    end
+    delegate :logger, to: :class
 
     def _prefixes
       base_class.concept_prefix + super + parent_controller.lookup_context.view_paths.collect(&:to_path)
