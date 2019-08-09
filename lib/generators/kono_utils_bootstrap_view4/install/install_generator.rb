@@ -27,20 +27,18 @@ module KonoUtilsBootstrapView4
 
     def append_dependecy_to_assets
       requirements = [
-        'jquery/dist/jquery',
-        'popper.js/dist/umd/popper.js',
-        'moment/moment.js',
-        'tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js',
         'kono_utils_bootstrap_view4/application'
       ]
+      KonoUtilsBootstrapView4.configuration.moment_js_locales.each do |l|
+        requirements << "moment/locale/#{l}.js" 
+      end
       inject_into_file 'app/assets/javascripts/application.js',
                        "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
                        before: "//= require_tree ."
 
 
       requirements = [
-        'kono_utils_bootstrap_view4/application',
-        'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css'
+        'kono_utils_bootstrap_view4/application'
       ]
       inject_into_file 'app/assets/stylesheets/application.css',
                        "#{requirements.collect { |c| "\n *= require #{c}" }.join}\n",
