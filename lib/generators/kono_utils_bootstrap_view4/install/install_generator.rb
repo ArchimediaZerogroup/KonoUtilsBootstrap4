@@ -30,7 +30,7 @@ module KonoUtilsBootstrapView4
         'kono_utils_bootstrap_view4/application'
       ]
       KonoUtilsBootstrapView4.configuration.moment_js_locales.each do |l|
-        requirements << "moment/locale/#{l}.js" 
+        requirements << "moment/locale/#{l}.js"
       end
       inject_into_file 'app/assets/javascripts/application.js',
                        "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
