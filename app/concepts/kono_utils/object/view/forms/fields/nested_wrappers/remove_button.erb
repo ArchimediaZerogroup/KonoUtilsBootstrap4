@@ -10,6 +10,7 @@
 
     element.kono_utils_delete_container = function () {
       $(container_selector).hide().find('[type="hidden"][name$="[_destroy]"]').val('true');
+      $(container_selector).trigger("container_deleted", [$(container_selector)[0]]);
     }
   })("#<%= unique_dom_id %>", '#<%= remove_target %>');
 </script>
