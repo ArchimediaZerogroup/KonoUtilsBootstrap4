@@ -25,6 +25,14 @@ module KonoUtilsBootstrapView4
 
     end
 
+
+    ##
+    # Solitamente questi campi sono da renderizzare come nascosti
+    # @return [TrueClass|FalseClass]
+    def is_hidden?
+      ['id', '_destroy'].include?(name.to_s)
+    end
+
     ##
     # Controlla se il campo è di tipo nested (un hash con chiave ed una serie di campi interni)
     def is_nested?
