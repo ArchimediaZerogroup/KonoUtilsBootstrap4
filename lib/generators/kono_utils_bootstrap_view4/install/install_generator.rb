@@ -9,6 +9,10 @@ module KonoUtilsBootstrapView4
       run "rails g kono_utils:install"
     end
 
+    def copy_initializer
+      template 'kono_utils_bootstrap_view4.template', Rails.root.join('config', 'initializers', 'kono_utils_bootstrap_view4.rb')
+    end
+
     def install_node_dependency
       yarn_packages = ['bootstrap@4.3.1', 'jquery@3.4.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
