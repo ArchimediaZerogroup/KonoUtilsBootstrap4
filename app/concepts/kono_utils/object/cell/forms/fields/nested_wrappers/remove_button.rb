@@ -30,6 +30,12 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       super + render(&block).html_safe
     end
 
+    ##
+    # ID div in cui definire che l'elemento viene rimosso
+    def remove_target
+      options[:remove_target]
+    end
+
 
   end
 end
