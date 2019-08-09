@@ -9,7 +9,7 @@ module KonoUtils::Object::Cell::Forms # namespace
     # e quindi stampare un determinato campo in modo differente
     # Viene normalizzato il campo in model contenente il KonoUtilsBootstrapView4::EditableField
     def get_field
-      logger.debug { "SELECT_FIELD:#{form.object.class.name}->#{model}" }
+      logger.debug { "SELECT_FIELD:#{form.object.class.name}->#{model.name}" }
       if model.is_nested?
         #devo nestarlo
         concept("cell/forms/fields/nested_wrapper", model, layout: layout_ns('cell/forms/fields/layout'))
