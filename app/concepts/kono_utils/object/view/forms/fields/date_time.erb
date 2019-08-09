@@ -1,0 +1,12 @@
+<%= form.input attribute_name, field_options %>
+
+<script>
+  $(function () {
+    $('#<%= datetime_picker_identifier %>').datetimepicker({
+      date: moment("<%= form.object.send(attribute_name)&.rfc2822 %>"),
+      locale: '<%= I18n.locale %>',
+      keepOpen: false,
+      debug: false
+    });
+  });
+</script>
