@@ -9,8 +9,12 @@ module KonoUtilsBootstrapView4
       run "rails g kono_utils:install"
     end
 
+    def copy_initializer
+      template 'kono_utils_bootstrap_view4.template', Rails.root.join('config', 'initializers', 'kono_utils_bootstrap_view4.rb')
+    end
+
     def install_node_dependency
-      yarn_packages = ['bootstrap@4.3.1', 'jquery@3.4.1', 'popper.js']
+      yarn_packages = ['bootstrap@4.3.1', 'jquery@3.4.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
@@ -23,12 +27,13 @@ module KonoUtilsBootstrapView4
 
     def append_dependecy_to_assets
       requirements = [
-        'jquery/dist/jquery',
-        'popper.js/dist/umd/popper.js',
         'kono_utils_bootstrap_view4/application'
       ]
+      KonoUtilsBootstrapView4.configuration.moment_js_locales.each do |l|
+        requirements << "moment/locale/#{l}.js"
+      end
       inject_into_file 'app/assets/javascripts/application.js',
-                       "#{requirements.collect {|c| "\n//= require #{c}"}.join}\n",
+                       "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
                        before: "//= require_tree ."
 
 
@@ -36,7 +41,7 @@ module KonoUtilsBootstrapView4
         'kono_utils_bootstrap_view4/application'
       ]
       inject_into_file 'app/assets/stylesheets/application.css',
-                       "#{requirements.collect {|c| "\n *= require #{c}"}.join}\n",
+                       "#{requirements.collect { |c| "\n *= require #{c}" }.join}\n",
                        before: " *= require_tree ."
 
     end
