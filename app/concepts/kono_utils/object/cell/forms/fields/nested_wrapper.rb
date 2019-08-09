@@ -49,7 +49,8 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       when :has_one
         form.object.send("build_#{attribute_name}") if form.object.send(attribute_name).nil?
       when :has_many
-        form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
+
+      #   form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
       else
         raise "not defined - #{reflection_association.macro}"
       end
