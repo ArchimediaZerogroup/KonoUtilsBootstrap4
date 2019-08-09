@@ -13,5 +13,7 @@
 //= require rails-ujs
 //= require jquery/dist/jquery
 //= require popper.js/dist/umd/popper.js
+//= require moment/moment.js
+//= require tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js
 //= require kono_utils_bootstrap_view4/application
 //= require_tree .

@@ -5,6 +5,7 @@
     "moment": "^2.24.0",
     "patternfly-bootstrap-treeview": "^2.1.8",
     "popper.js": "^1.15.0",
+    "tempusdominus-bootstrap-4": "^5.1.2",
     "underscore": "^1.9.1",
     "wolfy87-eventemitter": "^5.2.6"
   }

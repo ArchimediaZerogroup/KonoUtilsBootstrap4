@@ -12,6 +12,7 @@
  *
 
  *= require kono_utils_bootstrap_view4/application
+ *= require tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css
  *= require_tree .
  *= require_self
  */
