@@ -1,8 +1,7 @@
 <div class="<%= container_classes.join(' ') %>" id="<%= container_dom_id %>">
   <% form_attributes.each do |field| %>
 
-    <%= concept("cell/forms/field_selector", field,
-                context: {form: form}) %>
+    <%= concept("cell/forms/field_selector", field, context: {form: form}) %>
 
   <% end %>
 </div>
