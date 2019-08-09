@@ -1,10 +1,15 @@
 <script type="application/javascript">
 
-  document.getElementById("<%= unique_dom_id %>").onclick = function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('a');
-    $('#<%= remove_target %>').append('ciao').hide()
-    $(this).hide();
-  }
+  (function (id_button, container_selector) {
+    var element = $(id_button)[0];
+
+    element.onclick = function (e) {
+      e.preventDefault();
+      this.kono_utils_delete_container();
+    };
+
+    element.kono_utils_delete_container = function () {
+      $(container_selector).hide().find('[type="hidden"][name$="[_destroy]"]').val('true');
+    }
+  })("#<%= unique_dom_id %>", '#<%= remove_target %>');
 </script>
