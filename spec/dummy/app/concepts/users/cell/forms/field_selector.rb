@@ -11,6 +11,8 @@ class Users::Cell::Forms::FieldSelector < KonoUtils::Object::Cell::Forms::FieldS
     when :tags
       concept("cell/forms/fields/association", model, field_options: {as: :check_boxes},
               layout: layout_ns('cell/forms/fields/layout'))
+    when :contacts
+      concept("cell/forms/fields/nested_wrapper", model, context: {nested_layout: 'table_layout'}, layout: layout_ns('cell/forms/fields/layout'))
     else
       super
     end

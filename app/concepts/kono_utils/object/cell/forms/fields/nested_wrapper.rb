@@ -17,7 +17,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     end
 
     def forms_container_layout
-      layout = options[:as_table] ? "table_layout" : "layout"
+      layout = context[:nested_layout] ?  context[:nested_layout] : "layout"
       layout_ns("cell/forms/fields/nested_wrappers/#{layout}")
     end
 

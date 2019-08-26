@@ -1,11 +1,14 @@
 <% if params.dig(:kono_utils, :target_container)
 
      container = nil
+    params.permit!
+     context = params.dig(:kono_utils,:context).to_h.deep_symbolize_keys || {}
      simple_form_for(@object, as: "#{params.dig(:kono_utils, :structure_nested)}[#{Time.now.to_i}]", url: '#') do |form|
 
        container = concept(@object.class.concept_ns("cell/forms/fields/nested_wrappers/form"), @object,
                   show_remove_button: true,
-                  context: {form: form, base_class: @object.class,current_user:current_user})
+                  context: {form: form, base_class: @object.class,current_user:current_user}.merge(context)
+                  )
 
      end
 
