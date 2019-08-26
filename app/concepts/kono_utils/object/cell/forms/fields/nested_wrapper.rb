@@ -16,20 +16,9 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       super
     end
 
-    # causa di una stranezza di simple form che non ritiene safe il contenuto passato
-    def inner_form_block
-      form.simple_fields_for(attribute_name) do |inside_form|
-        capture do
-          yield(inside_form)
-        end.html_safe
-      end
-    end
-
-    ##
-    # Per i nested abbiamo un elenco di campi da visualizzare,
-    # questo elenco ci viene fornito tramite il modello EditableField, il quale elabora rispetto ai nested delle policy
-    def inner_fields
-      model.inner_fields
+    def forms_container_layout
+      layout = options[:as_table] ? "table_layout" : "layout"
+      layout_ns("cell/forms/fields/nested_wrappers/#{layout}")
     end
 
     ##
@@ -50,7 +39,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
         form.object.send("build_#{attribute_name}") if form.object.send(attribute_name).nil?
       when :has_many
 
-      #   form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
+        #   form.object.send(attribute_name).build if form.object.send(attribute_name).empty?
       else
         raise "not defined - #{reflection_association.macro}"
       end

@@ -1,15 +1,17 @@
 <%= concept("cell/forms/fields/nested_wrappers/header", model, context: {form: form, parent_cell: self, base_class: base_class}) %>
 
-<div class="kono_utils_nested_multi_container" id="<%= target_container_for_new_nested %>">
-  <%= inner_form_block do |inside_form| %>
 
-    <%= concept("cell/forms/fields/nested_wrappers/container", model,
-                form_attributes: inner_fields,
-                show_remove_button: has_multiple_elements?,
-                context: {form: inside_form, base_class: base_class}) %>
 
-  <% end %>
-</div>
+<%= concept("cell/forms/fields/nested_wrappers/forms_container", model,
+            layout: forms_container_layout,
+            context: {
+              form: form,
+              base_class: base_class,
+              parent_cell: self
+            })
+%>
+
+
 
 
 

@@ -3,10 +3,10 @@
      container = nil
      simple_form_for(@object, as: "#{params.dig(:kono_utils, :structure_nested)}[#{Time.now.to_i}]", url: '#') do |form|
 
-       container = concept(@object.class.concept_ns("cell/forms/fields/nested_wrappers/container"), @object,
+       container = concept(@object.class.concept_ns("cell/forms/fields/nested_wrappers/form"), @object,
                   show_remove_button: true,
                   context: {form: form, base_class: @object.class,current_user:current_user})
-       
+
      end
 
 %>
