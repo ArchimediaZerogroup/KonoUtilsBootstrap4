@@ -1,5 +1,5 @@
 # KonoUtilsBootstrapView4
-Short description and motivation.
+Versione di KonoUtils per utilizzare Bootstrap 4 e TrailBlazer per il rendering
 
 ## Usage
 How to use my plugin.
@@ -16,13 +16,6 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install kono_utils_bootstrap_view4
-```
-
-## Contributing
-Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
