@@ -1,21 +1,3 @@
-<%# if context[:nested_layout] == 'table_layout' %>
-<!--  <tr class="kono_utils_single_nested_container" id="<%#= container_id %>">-->
-
-
-<%# form_attributes.each do |field| %>
-<!--      <td>-->
-<%#= concept("cell/forms/field_selector", field, context: {form: form}) %>
-<!--      </td>-->
-
-<%# end %>
-<!--    <td>-->
-<%#= remove_button %>
-<!--    </td>-->
-
-
-<!--  </tr>-->
-
-<%# else %>
 <%= concept("cell/forms/container", model,
             form_attributes: form_attributes,
             layout: container_layout,
@@ -33,4 +15,4 @@
               base_class: base_class,
               overriden_layout: context[:nested_layout]
             }) if policy(form.object).destroy? and show_remove_button? %>
-<%# end %>
+
