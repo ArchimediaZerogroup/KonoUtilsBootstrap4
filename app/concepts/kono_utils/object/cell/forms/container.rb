@@ -2,10 +2,8 @@ module KonoUtils::Object::Cell::Forms # namespace
   # Classe che si occupa di generare il container della form
   class Container < Base
 
-    layout('forms/containers/layout')
-
     def show(&block)
-      logger.tagged(container_dom_id) do
+      logger.tagged(dom_id(form.object)) do
         super
       end
     end
@@ -16,13 +14,6 @@ module KonoUtils::Object::Cell::Forms # namespace
       options[:form_attributes] || KonoUtilsBootstrapView4::EditableField.editable_fields_to_field_array(policy(model).editable_attributes)
     end
 
-    def container_dom_id
-      options[:container_dom_id] || dom_id(form.object)
-    end
-
-    def container_classes
-      [:row] + (options[:container_classes] || [dom_class(form.object)])
-    end
 
 
   end

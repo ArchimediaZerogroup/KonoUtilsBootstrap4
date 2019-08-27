@@ -1,33 +1,36 @@
-<% if context[:nested_layout]=='table_layout' %>
-  <tr class="kono_utils_single_nested_container" id="<%= container_id %>">
+<%# if context[:nested_layout] == 'table_layout' %>
+<!--  <tr class="kono_utils_single_nested_container" id="<%#= container_id %>">-->
 
 
-    <% form_attributes.each do |field| %>
-      <td>
-        <%= concept("cell/forms/field_selector", field, context: {form: form}) %>
-      </td>
+<%# form_attributes.each do |field| %>
+<!--      <td>-->
+<%#= concept("cell/forms/field_selector", field, context: {form: form}) %>
+<!--      </td>-->
 
-    <% end %>
-    <td>
-
-      <%= concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
-                  remove_target: container_id,
-                  context: {form: form, base_class: base_class}) if policy(form.object).destroy? and show_remove_button? %>
-    </td>
+<%# end %>
+<!--    <td>-->
+<%#= remove_button %>
+<!--    </td>-->
 
 
-  </tr>
+<!--  </tr>-->
 
-<% else %>
-  <div class="kono_utils_single_nested_container" id="<%= container_id %>">
-
-    <%= concept("cell/forms/container", model,
-                form_attributes: form_attributes,
-                context: {form: form, base_class: base_class}
-        ) %>
-
-    <%= concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
-                remove_target: container_id,
-                context: {form: form, base_class: base_class}) if policy(form.object).destroy? and show_remove_button? %>
-  </div>
-<% end %>
+<%# else %>
+<%= concept("cell/forms/container", model,
+            form_attributes: form_attributes,
+            layout: container_layout,
+            context: {
+              form: form,
+              base_class: base_class,
+              overriden_layout: context[:nested_layout]
+            }
+    ) %>
+<%= concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
+            remove_target: container_id,
+            layout: remove_button_layout,
+            context: {
+              form: form,
+              base_class: base_class,
+              overriden_layout: context[:nested_layout]
+            }) if policy(form.object).destroy? and show_remove_button? %>
+<%# end %>

@@ -22,7 +22,16 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     ##
     # Id per identificare il container che raggruppa campi e bottone per cancellare
     def container_id
-      @_unique ||= SecureRandom.uuid
+      @_unique ||= context[:container_id] = SecureRandom.uuid
+    end
+
+
+    def container_layout
+      context[:nested_layout] ? layout_ns("cell/forms/containers/#{context[:nested_layout]}") : nil
+    end
+
+    def remove_button_layout
+      context[:nested_layout] ? layout_ns("cell/forms/fields/nested_wrappers/remove_buttons/#{context[:nested_layout]}") : nil
     end
 
   end

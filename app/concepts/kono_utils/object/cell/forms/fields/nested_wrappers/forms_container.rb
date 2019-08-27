@@ -27,5 +27,10 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       model.inner_fields
     end
 
+    def form_layout
+      layout = context[:nested_layout] ?  context[:nested_layout] : "layout"
+      layout_ns("cell/forms/fields/nested_wrappers/forms/#{layout}")
+    end
+
   end
 end

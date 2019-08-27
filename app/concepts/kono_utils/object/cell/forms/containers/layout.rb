@@ -3,6 +3,14 @@ module KonoUtils::Object::Cell::Forms # namespace
   class Containers::Layout < Base
 
 
+    def container_dom_id
+      options[:container_dom_id] || dom_id(form.object)
+    end
+
+    def container_classes
+      [:row] + (options[:container_classes] || [dom_class(form.object)])
+    end
+
 
   end
 end

@@ -1,6 +1,6 @@
 <%= simple_form_for(*forms_options) do |f| %>
 
-  <%= concept("cell/forms/container", model, context: {form: f}) %>
+  <%= concept("cell/forms/container", model, context: {form: f},layout:layout_ns("cell/forms/containers/layout")) %>
 
   <%= concept("cell/forms/submit", nil, context: {form: f}) %>
 
