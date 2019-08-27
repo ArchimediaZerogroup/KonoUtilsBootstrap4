@@ -29,7 +29,7 @@ module KonoUtilsBootstrapView4
       # ]
 
       Array([
-              "kono_utils/object/cell/forms/fields/layout"
+              "kono_utils/object/cell/forms/fields/bases/layout"
             ]).each do |cell_class|
         puts "@@@@@ #{cell_class.camelize.constantize.prefixes}"
         app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes
