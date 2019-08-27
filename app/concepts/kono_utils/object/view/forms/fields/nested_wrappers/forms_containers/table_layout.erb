@@ -1,7 +1,10 @@
 <table class="kono_utils_nested_table">
   <thead>
   <tr>
-    <th>Colonna</th>
+    <% columns_to_show.each do |c| %>
+      <th><%= form.object.class.human_attribute_name(c.name) %></th>
+    <% end %>
+    <th></th>
   </tr>
   </thead>
   <tbody class="kono_utils_nested_multi_container" id="<%= target_container_for_new_nested %>">

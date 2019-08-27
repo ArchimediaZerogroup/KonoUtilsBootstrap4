@@ -7,5 +7,10 @@ module KonoUtils::Object::Cell::Forms::Fields::NestedWrappers::FormsContainers #
 
 
 
+    def columns_to_show
+      model.inner_fields.reject(&:is_hidden?)
+    end
+
+
   end
 end
