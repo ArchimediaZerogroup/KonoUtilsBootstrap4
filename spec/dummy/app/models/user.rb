@@ -31,4 +31,8 @@ class User < ApplicationRecord
   has_one :principal_contact, -> { where(principal: true) }, :class_name => 'Users::Contact'
   accepts_nested_attributes_for :principal_contact, reject_if: :all_blank
 
+  has_many :documents, dependent: :destroy, class_name: 'Users::Document'
+  accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
+
+
 end

@@ -1,3 +1,3 @@
-class ContactTipologyPolicy  < BaseEditingPolicy
+class ContactTipologyPolicy < BaseEditingPolicy
 
 end

@@ -1,5 +1,4 @@
-class Users::ContactPolicy < ContactPolicy
-
+class Users::DocumentPolicy < DocumentPolicy
   def editable_attributes
     super - [:user_id] + [:id, :_destroy]
   end
@@ -7,5 +6,4 @@ class Users::ContactPolicy < ContactPolicy
   def permitted_attributes
     super - [:user_id] + [:id, :_destroy]
   end
-
 end
