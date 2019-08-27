@@ -27,11 +27,11 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
 
     def container_layout
-      context[:nested_layout] ? layout_ns("cell/forms/containers/#{context[:nested_layout]}") : nil
+      context[:nested_layout].blank? ? nil : layout_ns("cell/forms/containers/#{context[:nested_layout]}")
     end
 
     def remove_button_layout
-      context[:nested_layout] ? layout_ns("cell/forms/fields/nested_wrappers/remove_buttons/#{context[:nested_layout]}") : nil
+      context[:nested_layout].blank? ? nil : layout_ns("cell/forms/fields/nested_wrappers/remove_buttons/#{context[:nested_layout]}")
     end
 
   end

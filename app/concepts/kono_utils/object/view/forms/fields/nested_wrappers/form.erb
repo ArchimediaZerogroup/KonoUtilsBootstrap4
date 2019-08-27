@@ -12,7 +12,6 @@
             layout: remove_button_layout,
             context: {
               form: form,
-              base_class: base_class,
-              overriden_layout: context[:nested_layout]
+              base_class: base_class
             }) if policy(form.object).destroy? and show_remove_button? %>
 

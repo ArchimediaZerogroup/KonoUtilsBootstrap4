@@ -12,15 +12,20 @@ module KonoUtils::Object::Cell::Forms # namespace
       logger.debug { "SELECT_FIELD:#{form.object.class.name}->#{model.name}" }
       if model.is_nested?
         #devo nestarlo
-        concept("cell/forms/fields/nested_wrapper", model, layout: layout_ns('cell/forms/fields/layout'))
+        concept("cell/forms/fields/nested_wrapper", model, layout: get_layout('nested_wrappers'))
       else
         # decidiamo se renderizzare un'associazione o meno
         if form.object.class.reflect_on_association(model.name)
-          concept("cell/forms/fields/association", model, layout: layout_ns('cell/forms/fields/layout'))
+          concept("cell/forms/fields/association", model, layout: get_layout('associations'))
         else
-          concept("cell/forms/fields/base", model, layout: layout_ns('cell/forms/fields/layout'))
+          concept("cell/forms/fields/base", model, layout: get_layout('bases'))
         end
       end
+    end
+
+    def get_layout(field_ns)
+      layout = context[:overriden_layout].blank? ? "layout": context[:overriden_layout]
+      layout_ns("cell/forms/fields/bases/#{layout}")
     end
 
 

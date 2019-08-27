@@ -15,6 +15,11 @@ module KonoUtils::Object::Cell::Forms # namespace
     end
 
 
+    def field_selector_layout
+      layout = context[:overriden_layout].blank? ? "layout" : context[:overriden_layout]
+      layout_ns("cell/forms/field_selectors/#{layout}")
+    end
+
 
   end
 end

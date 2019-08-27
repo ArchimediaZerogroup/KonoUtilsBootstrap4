@@ -1,0 +1,18 @@
+.kono_utils-hidden {
+  display: none;
+}
+
+.kono_utils_nested_table {
+  tr.kono_utils_single_nested_container {
+    td {
+      vertical-align: top;
+      padding-bottom:10px;
+      .form-group{
+        margin-bottom: 0px;
+      }
+      label {
+        display: none;
+      }
+    }
+  }
+}

@@ -28,7 +28,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     end
 
     def form_layout
-      layout = context[:nested_layout] ?  context[:nested_layout] : "layout"
+      layout = context[:nested_layout].blank? ? "layout" : context[:nested_layout]
       layout_ns("cell/forms/fields/nested_wrappers/forms/#{layout}")
     end
 
