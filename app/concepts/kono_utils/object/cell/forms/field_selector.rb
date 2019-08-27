@@ -18,13 +18,24 @@ module KonoUtils::Object::Cell::Forms # namespace
         if form.object.class.reflect_on_association(model.name)
           concept("cell/forms/fields/association", model, layout: get_layout('associations'))
         else
-          concept("cell/forms/fields/base", model, layout: get_layout('bases'))
+          # riconosciamo la tipologia di campo per renderizzare quello corretto
+          case form.object.class.type_for_attribute(model.name).type
+          when :date
+            concept("cell/forms/fields/date_field", model, layout: get_layout('bases'))
+          when :time
+            concept("cell/forms/fields/time_field", model, layout: get_layout('bases'))
+          when :datetime
+            concept("cell/forms/fields/date_time_field", model, layout: get_layout('bases'))
+          else
+            concept("cell/forms/fields/base", model, layout: get_layout('bases'))
+          end
+
         end
       end
     end
 
     def get_layout(field_ns)
-      layout = context[:overriden_layout].blank? ? "layout": context[:overriden_layout]
+      layout = context[:overriden_layout].blank? ? "layout" : context[:overriden_layout]
       layout_ns("cell/forms/fields/bases/#{layout}")
     end
 
