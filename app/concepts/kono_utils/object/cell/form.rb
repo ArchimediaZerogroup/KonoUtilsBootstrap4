@@ -7,6 +7,9 @@ module KonoUtils::Object::Cell # namespace
     include ActionView::Helpers::DateHelper
     include ActionView::Helpers::FormOptionsHelper
 
+
+    layout("forms/layout")
+
     ##
     # Metodo che mi ritorna la lista degli argomenti da passare a simple form.
     # @return [Array]

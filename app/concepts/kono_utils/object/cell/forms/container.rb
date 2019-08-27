@@ -2,6 +2,8 @@ module KonoUtils::Object::Cell::Forms # namespace
   # Classe che si occupa di generare il container della form
   class Container < Base
 
+    layout('forms/containers/layout')
+
     def show(&block)
       logger.tagged(container_dom_id) do
         super
