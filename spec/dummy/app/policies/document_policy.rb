@@ -1,5 +1,12 @@
 class DocumentPolicy < BaseEditingPolicy
 
+  def editable_attributes
+    super + [:doc]
+  end
+
+  def permitted_attributes
+    super + [:doc]
+  end
 
   def index?
     true
