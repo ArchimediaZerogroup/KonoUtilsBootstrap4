@@ -1,5 +1,4 @@
 require "kono_utils_bootstrap_view4/engine"
-require "kaminari-cells"
 
 module KonoUtilsBootstrapView4
   extend ActiveSupport::Autoload

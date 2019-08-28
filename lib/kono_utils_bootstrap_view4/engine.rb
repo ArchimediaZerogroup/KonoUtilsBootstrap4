@@ -7,6 +7,7 @@ module KonoUtilsBootstrapView4
     require 'kaminari/actionview/action_view_extension'
     require 'font-awesome-rails'
     require 'simple_form'
+    require "kaminari-cells"
 
 
     initializer 'kono_utils_bootstrap_view4.append_views', :before => 'kono_utils.append_views', :group => :all do |app|
