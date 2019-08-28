@@ -19,11 +19,8 @@ module KonoUtils::Object::Cell # namespace
     #
     # [model,{ url:helper_path_custom }] -> come secondo parametro abbiamo l'hash delle opzioni da poter passare al form builder
     def forms_options
-      [model]
+      [model, {html: {multipart: true}}]
     end
-
-
-
 
 
   end
