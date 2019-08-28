@@ -9,6 +9,10 @@ class Users::Cell::Forms::FieldSelector < KonoUtils::Object::Cell::Forms::FieldS
       concept("cell/forms/fields/nested_wrapper", model,
               context: {nested_layout: 'table_layout'},
               layout: get_layout('nested_wrappers'))
+    when :documents
+      concept("cell/forms/fields/nested_wrapper", model,
+              context: {nested_layout: 'modal_layout'},
+              layout: get_layout('nested_wrappers'))
     else
       super
     end
