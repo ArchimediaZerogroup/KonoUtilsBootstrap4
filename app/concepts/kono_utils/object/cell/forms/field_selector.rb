@@ -18,17 +18,30 @@ module KonoUtils::Object::Cell::Forms # namespace
         if form.object.class.reflect_on_association(model.name)
           concept("cell/forms/fields/association", model, layout: get_layout('associations'))
         else
+
+          attribute_type = form.object.class.type_for_attribute(model.name).type
+
+          #riconosciamo se sono file allegati
+          file = form.object.send(model.name) if form.object.respond_to?(model.name)
+          if file && SimpleForm.file_methods.any? { |m| file.respond_to?(m) }
+            attribute_type = :file
+          end
+
           # riconosciamo la tipologia di campo per renderizzare quello corretto
-          case form.object.class.type_for_attribute(model.name).type
+          case attribute_type
           when :date
             concept("cell/forms/fields/date_field", model, layout: get_layout('bases'))
           when :time
             concept("cell/forms/fields/time_field", model, layout: get_layout('bases'))
           when :datetime
             concept("cell/forms/fields/date_time_field", model, layout: get_layout('bases'))
+          when :file
+            concept("cell/forms/fields/file_field", model, layout: get_layout('bases'))
           else
+            logger.debug { "TIPO non riconosciuto: #{form.object.class.type_for_attribute(model.name).type} -> #{form.object.class.type_for_attribute(model.name).inspect}" }
             concept("cell/forms/fields/base", model, layout: get_layout('bases'))
           end
+
 
         end
       end

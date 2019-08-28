@@ -6,7 +6,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     end
 
     def specific_button_class
-      'btn-default'
+      'btn-link'
     end
 
     def show

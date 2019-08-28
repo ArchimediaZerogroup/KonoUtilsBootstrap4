@@ -1,0 +1,6 @@
+it:
+  kono_utils:
+    bootstrap4:
+      buttons:
+        download:
+          alt: Download
