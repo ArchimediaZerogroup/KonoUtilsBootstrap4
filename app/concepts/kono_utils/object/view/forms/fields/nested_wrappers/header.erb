@@ -1,21 +1,25 @@
-<%= form.label attribute_name %>
+<div class="kono_utils_nested_wrapper_header">
 
-<% if build_new_nested? %>
-  <% if policy(base_class.new).create? %>
-    <%= concept("cell/buttons/create", base_class.new,
-                url_to: new_custom_polymorphic_path(
-                  [form.object, base_class.new],
-                  format: :inject,
-                  kono_utils: {
-                    target_container: "##{target_container_for_new_nested}",
-                    structure_nested: "#{form.object_name}[#{attribute_name}_attributes]",
-                    context: {nested_layout: context[:nested_layout]}
+  <strong><%= form.label attribute_name %></strong>
+
+  <% if build_new_nested? %>
+    <% if policy(base_class.new).create? %>
+      <%= concept("cell/buttons/create", base_class.new,
+                  url_to: new_custom_polymorphic_path(
+                    [form.object, base_class.new],
+                    format: :inject,
+                    kono_utils: {
+                      target_container: "##{target_container_for_new_nested}",
+                      structure_nested: "#{form.object_name}[#{attribute_name}_attributes]",
+                      context: {nested_layout: context[:nested_layout]}
+                    }
+                  ),
+                  button_options: {
+                    class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}",
+                    remote: true
                   }
-                ),
-                button_options: {
-                  class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'create'))}",
-                  remote: true
-                }
-        ) %>
+          ) %>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>

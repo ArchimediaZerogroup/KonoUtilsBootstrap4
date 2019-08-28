@@ -2,6 +2,10 @@
   display: none;
 }
 
+.kono_utils_nested_wrapper_header{
+  margin-bottom: 4px;
+}
+
 .kono_utils_nested_table {
   tr.kono_utils_single_nested_container {
     td {
@@ -15,4 +19,7 @@
       }
     }
   }
+}
+div.kono_utils_single_nested_container{
+  margin-bottom:10px;
 }

@@ -7,7 +7,7 @@
               overriden_layout: context[:nested_layout]
             }
     ) %>
-<%= concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
+<% content_for_layout :"remove_button_#{container_id}", concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
             remove_target: container_id,
             layout: remove_button_layout,
             context: {

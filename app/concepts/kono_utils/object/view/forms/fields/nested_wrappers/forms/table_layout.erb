@@ -1,3 +1,4 @@
 <tr class="kono_utils_single_nested_container" id="<%= container_id %>">
   <%= yield %>
+  <%= content_for_layout :"remove_button_#{container_id}" %>
 </tr>

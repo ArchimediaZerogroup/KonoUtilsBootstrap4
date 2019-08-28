@@ -26,6 +26,26 @@ module KonoUtils::Object::Cell # namespace
       parent_controller.send(:index_custom_polymorphic_path, *rec)
     end
 
+    def content_for_layout(name, content = nil, options = {}, &block)
+      context[:_view_layout_flow] ||= ActionView::OutputFlow.new
+      if content || block_given?
+        if block_given?
+          options = content if content
+          content = capture(&block)
+        end
+        if content
+          content = content.to_s.html_safe
+          options[:flush] ? context[:_view_layout_flow].set(name, content) : context[:_view_layout_flow].append(name, content)
+        end
+        nil
+      else
+        context[:_view_layout_flow].get(name).presence
+      end
+    end
+
+    def content_for_layout?(name)
+      context[:_view_layout_flow].get(name).present? rescue false
+    end
 
     alias_method :legacy_concept, :concept
 
