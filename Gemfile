@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) {|repo| "https://github.com/#{repo}.git"}
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Declare your gem's dependencies in kono_utils_bootstrap_view4.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -21,6 +21,7 @@ gem 'annotate'
 gem 'thin'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'sass-rails', '~> 5.0'
 
 
 # Temporaneo di sviluppo
