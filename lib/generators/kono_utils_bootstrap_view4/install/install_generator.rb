@@ -49,6 +49,7 @@ module KonoUtilsBootstrapView4
     def append_gem_dependency
       gem 'cells-erb' # inserita in installazione come specificato qua http://trailblazer.to/gems/cells/rails.html#engine-render-problems
       gem 'cells-rails'
+      gem 'kaminari-cells'
     end
   end
 end
