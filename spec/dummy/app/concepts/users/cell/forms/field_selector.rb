@@ -11,7 +11,7 @@ class Users::Cell::Forms::FieldSelector < KonoUtils::Object::Cell::Forms::FieldS
               layout: get_layout('nested_wrappers'))
     when :documents
       concept("cell/forms/fields/nested_wrapper", model,
-              context: {nested_layout: 'modal_layout'},
+              context: {nested_layout: 'modal_layout'}, as_display_list: true,
               layout: get_layout('nested_wrappers'))
     else
       super

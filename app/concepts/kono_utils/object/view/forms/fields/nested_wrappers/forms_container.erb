@@ -1,5 +1,5 @@
 <%= inner_form_block do |inside_form| %>
-  <%= concept("cell/forms/fields/nested_wrappers/form", model,
+  <%= concept(render_cell_container, model,
               form_attributes: inner_fields,
               layout: form_layout,
               show_remove_button: has_multiple_elements?,

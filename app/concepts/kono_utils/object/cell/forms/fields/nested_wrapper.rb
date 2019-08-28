@@ -1,6 +1,9 @@
 module KonoUtils::Object::Cell::Forms::Fields # namespace
   # La cella base dei componenti della form contiene sempre la form come model
   # la base class di un nested diventa il modello della relazione
+  #
+  # ** Options:
+  # - as_display_list -> Boolean che mi definisce se renderizzare come solo display la lista dei componenti
   class NestedWrapper < Base
 
 
