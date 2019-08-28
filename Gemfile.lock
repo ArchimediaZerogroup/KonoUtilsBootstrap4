@@ -25,6 +25,7 @@ PATH
       cells-rails
       font-awesome-rails (~> 4.7.0)
       kaminari (~> 1.1)
+      kaminari-cells
       kono_utils (~> 1.0)
       rails (~> 5.2.3)
       simple_form (~> 4.1)
