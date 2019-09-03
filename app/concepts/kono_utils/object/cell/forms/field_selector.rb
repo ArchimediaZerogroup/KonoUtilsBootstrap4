@@ -37,7 +37,6 @@ module KonoUtils::Object::Cell::Forms # namespace
             concept("cell/forms/fields/date_time_field", model, layout: get_layout('bases'))
           when :file
             concept("cell/forms/fields/file_field", model, layout: get_layout('bases'))
-          when :string, :integer
           else
             logger.debug { "TIPO non riconosciuto: #{form.object.class.type_for_attribute(model.name).type} -> #{form.object.class.type_for_attribute(model.name).inspect}" }
             concept("cell/forms/fields/base", model, layout: get_layout('bases'))
