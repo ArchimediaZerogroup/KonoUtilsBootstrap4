@@ -31,8 +31,8 @@ module KonoUtils::Object::Cell # namespace
       simple_form_for(model, as: "#{params.dig(:kono_utils, :structure_nested)}[#{Time.now.to_i}]", url: '#') do |form|
 
         container = concept("cell/forms/fields/nested_wrappers/form", model,
-                            show_remove_button: true,
-                            layout: form_layout ,
+                            show_remove_button: !inject_as_modal?, #per le modal non visualizziamo direttamente il bottone
+                            layout: form_layout,
                             context: {form: form, base_class: base_class, current_user: context[:current_user]}.merge(remote_context)
         )
 
@@ -42,21 +42,30 @@ module KonoUtils::Object::Cell # namespace
     end
 
     def target_container
-      params.dig(:kono_utils, :target_container)
+      inject_as_modal? ? 'body' : params.dig(:kono_utils, :target_container)
     end
 
 
     def for_modal(content)
-      inject_as_modal = params.dig(:kono_utils, :inject_as_modal)
 
-      unless inject_as_modal.blank?
+      if inject_as_modal?
         content = concept("cell/modals/container",
-                            content,
-                            layout: model.class.layout_ns("cell/modals/containers/layout")
+                          content,
+                          layout: model.class.layout_ns("cell/modals/containers/layout")
         )
       end
 
       content
+    end
+
+    def inject_as_modal
+      params.dig(:kono_utils, :inject_as_modal)
+    end
+
+    private
+
+    def inject_as_modal?
+      !inject_as_modal.blank?
     end
 
   end

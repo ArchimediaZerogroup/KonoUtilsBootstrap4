@@ -9,6 +9,7 @@
                     [form.object, base_class.new],
                     format: options.fetch(:format, :inject),
                     kono_utils: {
+                      inject_as_modal: options[:inject_as_modal],
                       target_container: "##{target_container_for_new_nested}",
                       structure_nested: "#{form.object_name}[#{attribute_name}_attributes]",
                       context: {nested_layout: context[:nested_layout]}
