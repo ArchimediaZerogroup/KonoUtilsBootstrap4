@@ -13,5 +13,5 @@
             context: {
               form: form,
               base_class: base_class
-            }) if policy(form.object).destroy? and show_remove_button? %>
+            }),flush:true if policy(form.object).destroy? and show_remove_button? %>
 

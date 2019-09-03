@@ -1,25 +1,2 @@
-<% if params.dig(:kono_utils, :target_container)
-
-     container = nil
-
-
-     params.permit!
-     context = params.dig(:kono_utils, :context).to_h.deep_symbolize_keys || {}
-     layout = context[:nested_layout].blank? ? "layout" : context[:nested_layout]
-
-     simple_form_for(@object, as: "#{params.dig(:kono_utils, :structure_nested)}[#{Time.now.to_i}]", url: '#') do |form|
-
-       container = concept(@object.class.concept_ns("cell/forms/fields/nested_wrappers/form"), @object,
-                  show_remove_button: true,
-                  layout: @object.class.layout_ns("cell/forms/fields/nested_wrappers/forms/#{layout}"),
-                  context: {form: form, base_class: @object.class,current_user:current_user}.merge(context)
-                  )
-
-     end
-
-%>
-  var content = window.atob("<%= Base64.strict_encode64(container.to_s) -%>");
-  $("<%= params.dig(:kono_utils, :target_container) %>").append(content);
-<% else %>
-  console.warn("Devi passare in params kono_utils[target_container]=valore dove valore è il selettore css in cui APPENDERE il contenuto che generiamo per la new")
-<% end %>
+<%= concept(@object.class.concept_ns("cell/inject"), @object,
+            params: params, context: {current_user: current_user, base_class: @object.class}) -%>

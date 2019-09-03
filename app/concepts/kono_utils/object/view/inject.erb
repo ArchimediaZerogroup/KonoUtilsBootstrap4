@@ -1,0 +1,6 @@
+<% if target_container %>
+  var content = window.atob("<%= Base64.strict_encode64(form_content.to_s) -%>");
+  $("<%= target_container %>").append(content);
+<% else %>
+  console.warn("Devi passare in params kono_utils[target_container]=valore dove valore è il selettore css in cui APPENDERE il contenuto che generiamo per la new")
+<% end %>
