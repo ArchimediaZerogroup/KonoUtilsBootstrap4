@@ -33,7 +33,11 @@ module KonoUtils::Object::Cell # namespace
         container = concept("cell/forms/fields/nested_wrappers/form", model,
                             show_remove_button: !inject_as_modal?, #per le modal non visualizziamo direttamente il bottone
                             layout: form_layout,
-                            context: {form: form, base_class: base_class, current_user: context[:current_user]}.merge(remote_context)
+                            context: {
+                              form: form,
+                              base_class: base_class,
+                              current_user: context[:current_user]
+                            }.merge(remote_context)
         )
 
       end
