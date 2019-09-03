@@ -26,7 +26,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     ##
     # Restituisce il nome della cella da renderizzare, è possibile che sia una form o la show
     def render_cell_container
-      options[:as_display_list]===true ? "cell/forms/fields/nested_wrappers/show" : "cell/forms/fields/nested_wrappers/form"
+      "cell/forms/fields/nested_wrappers/form"
     end
 
     ##

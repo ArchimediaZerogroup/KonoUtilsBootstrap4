@@ -1,8 +1,8 @@
-module KonoUtils::Object::Cell::Forms::Fields::NestedWrappers # namespace
+module KonoUtils::Object::Cell::Forms::Fields # namespace
   ##
   # Rappresenta la classe che renderizza il contenitore della versione di visualizzazione del dato
   ##
-  class Show < Form
+  class NestedModalWrappers::Show < NestedWrappers::Form
 
     # nella show dobbiamo renderizzare nascosti solo i campi dell'ID del destroy
     def form_attributes
