@@ -33,7 +33,7 @@ module KonoUtils::Object::Cell # namespace
     end
 
     def fa_icon(icon, text: nil)
-      icon = content_tag(:i, nil, class: "fas fa-#{icon}")
+      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
       elements = [icon]
       unless text.blank?
         elements << text
