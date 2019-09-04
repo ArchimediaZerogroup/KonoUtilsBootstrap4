@@ -6,7 +6,6 @@ module KonoUtilsBootstrapView4
     require 'cell/rails'
     require 'kaminari'
     require 'kaminari/actionview/action_view_extension'
-    require 'font-awesome-rails'
     require 'simple_form'
     require "kaminari-cells"
 
