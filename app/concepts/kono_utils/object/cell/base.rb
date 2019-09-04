@@ -25,6 +25,10 @@ module KonoUtils::Object::Cell # namespace
       parent_controller.send(:index_custom_polymorphic_path, *rec)
     end
 
+    def destroy_custom_polymorphic_path(*rec)
+      parent_controller.send(:destroy_custom_polymorphic_path, *rec)
+    end
+
     def content_for_layout(name, content = nil, options = {}, &block)
       context[:_view_layout_flow] ||= ActionView::OutputFlow.new
       if content || block_given?
