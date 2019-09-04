@@ -28,6 +28,11 @@ module KonoUtils::Object::Cell # namespace
       dom_id(model, SecureRandom.uuid)
     end
 
+    def container_layout
+      layout = context[:nested_layout].blank? ? "layout" : context[:nested_layout]
+      layout_ns("cell/forms/containers/#{layout}")
+    end
+
     private
 
     ##

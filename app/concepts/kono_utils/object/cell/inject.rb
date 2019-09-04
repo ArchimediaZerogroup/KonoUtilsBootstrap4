@@ -21,8 +21,7 @@ module KonoUtils::Object::Cell # namespace
     end
 
     def form_layout
-      layout = remote_context[:nested_layout].blank? ? "layout" : remote_context[:nested_layout]
-      layout_ns("cell/forms/fields/nested_wrappers/forms/#{layout}")
+      layout_ns("cell/forms/fields/nested_wrappers/forms/#{nested_layout}")
     end
 
     def remote_context
@@ -32,8 +31,11 @@ module KonoUtils::Object::Cell # namespace
     def form_content
 
       if inject_as_modal
+
         concept("cell/modals/container",
-                concept("cell/form", model, form_options: {remote: true}),
+                concept("cell/form", model,
+                        form_options: {remote: true},
+                        context: {nested_layout: nested_layout}.merge(context)),
                 layout: model.class.layout_ns("cell/modals/containers/layout")
         )
 
@@ -73,6 +75,10 @@ module KonoUtils::Object::Cell # namespace
     end
 
     private
+
+    def nested_layout
+      remote_context[:nested_layout].blank? ? "layout" : remote_context[:nested_layout]
+    end
 
     def inject_as_modal?
       !inject_as_modal.blank?
