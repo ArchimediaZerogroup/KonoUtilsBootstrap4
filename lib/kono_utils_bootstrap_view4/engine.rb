@@ -3,6 +3,7 @@ module KonoUtilsBootstrapView4
 
     require 'trailblazer/cells'
     require 'cell/erb'
+    require 'cell/rails'
     require 'kaminari'
     require 'kaminari/actionview/action_view_extension'
     require 'font-awesome-rails'
