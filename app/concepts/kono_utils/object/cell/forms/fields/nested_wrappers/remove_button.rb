@@ -12,12 +12,6 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       {}
     end
 
-    ##
-    # Nome della funzione da utilizzare quando viene cliccato il bottone
-    def js_function_name
-      @_fn_name ||= "remove_#{SecureRandom.hex(10)}"
-    end
-
     def show(&block)
       super + render(&block).html_safe
     end
