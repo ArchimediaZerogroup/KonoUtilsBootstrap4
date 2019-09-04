@@ -1,7 +1,7 @@
 class <%= model_name.pluralize %>::Cell::Form < KonoUtils::Object::Cell::Form
 
   #def forms_options
-  #  [model]
+  #  [model, _form_options]
   #end
 
 
