@@ -109,5 +109,16 @@ module KonoUtils::Object::Cell # namespace
       t("activerecord.modelgender.#{model.class.name.underscore.to_sym}", :default => :m).to_sym
     end
 
+    def fa_icon(icon, text: nil)
+      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
+      elements = [icon]
+      unless text.blank?
+        elements << text
+        elements.reverse!
+      end
+
+      safe_join(elements, " ")
+    end
+
   end
 end

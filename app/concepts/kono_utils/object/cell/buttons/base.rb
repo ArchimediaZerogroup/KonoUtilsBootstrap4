@@ -32,16 +32,6 @@ module KonoUtils::Object::Cell # namespace
       @_unique_dom_id ||= SecureRandom.uuid
     end
 
-    def fa_icon(icon, text: nil)
-      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
-      elements = [icon]
-      unless text.blank?
-        elements << text
-        elements.reverse!
-      end
-
-      safe_join(elements, " ")
-    end
 
   end
 end
