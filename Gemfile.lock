@@ -23,7 +23,6 @@ PATH
     kono_utils_bootstrap_view4 (0.1.0)
       cells-erb
       cells-rails
-      font-awesome-rails (~> 4.7.0)
       kaminari (~> 1.1)
       kaminari-cells
       kono_utils (~> 1.0)
@@ -120,8 +119,6 @@ GEM
     eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.11.1)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
@@ -157,7 +154,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    nio4r (2.5.0)
+    nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pundit (2.1.0)

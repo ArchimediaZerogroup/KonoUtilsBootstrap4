@@ -10,7 +10,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     end
 
     def show
-      link_to fa_icon("download fw",text: I18n.t('kono_utils.bootstrap4.buttons.download.alt')), url_to, btn_opts
+      link_to fa_icon("download",text: I18n.t('kono_utils.bootstrap4.buttons.download.alt')), url_to, btn_opts
     end
 
   end

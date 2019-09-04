@@ -25,7 +25,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
 
 
     def show(&block)
-      link_to fa_icon("trash fw"), url_to, btn_opts
+      link_to fa_icon("trash"), url_to, btn_opts
     end
 
   end

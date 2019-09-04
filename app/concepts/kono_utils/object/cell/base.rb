@@ -5,7 +5,6 @@ module KonoUtils::Object::Cell # namespace
     include Pundit
     include Kaminari::Helpers::HelperMethods
     include Kaminari::Cells
-    include FontAwesome::Rails::IconHelper
 
 
     ##

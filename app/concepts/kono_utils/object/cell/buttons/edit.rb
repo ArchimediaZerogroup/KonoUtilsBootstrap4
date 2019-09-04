@@ -10,7 +10,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     end
 
     def show
-      link_to fa_icon("pencil fw"), url_to, btn_opts
+      link_to fa_icon("edit"), url_to, btn_opts
     end
 
   end

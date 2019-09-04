@@ -15,7 +15,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
 
 
     def show
-      link_to(fa_icon("plus fw"), url_to, btn_opts)
+      link_to(fa_icon("plus"), url_to, btn_opts)
     end
 
   end

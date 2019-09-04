@@ -15,8 +15,7 @@ module KonoUtils::Object::Cell # namespace
     end
 
 
-
-    def btn_opts(opts={})
+    def btn_opts(opts = {})
       custom_options = options.dig(:button_options) || opts
       opts = {
         class: "btn #{specific_button_class} btn-xs #{custom_options.delete(:class)}".split(' ').uniq.join(' '),
@@ -31,6 +30,17 @@ module KonoUtils::Object::Cell # namespace
 
     def unique_dom_id
       @_unique_dom_id ||= SecureRandom.uuid
+    end
+
+    def fa_icon(icon, text: nil)
+      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
+      elements = [icon]
+      unless text.blank?
+        elements << text
+        elements.reverse!
+      end
+
+      safe_join(elements, " ")
     end
 
   end
