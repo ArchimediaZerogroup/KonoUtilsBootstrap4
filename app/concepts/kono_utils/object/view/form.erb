@@ -2,6 +2,8 @@
 
   <%= concept("cell/forms/container", model, context: {form: f}, layout: layout_ns("cell/forms/containers/layout")) %>
 
+  <%= hidden_field_tag "kono_utils[form_id]", form_id %>
+
   <%= concept("cell/forms/submit", nil, context: {form: f}) %>
 
 <% end %>

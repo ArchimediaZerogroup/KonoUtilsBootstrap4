@@ -23,6 +23,11 @@ module KonoUtils::Object::Cell # namespace
       [model, _form_options]
     end
 
+    protected
+    def form_id
+      dom_id(model, SecureRandom.uuid)
+    end
+
     private
 
     ##
@@ -30,6 +35,7 @@ module KonoUtils::Object::Cell # namespace
     def _form_options
       opts = options[:form_options] || {}
       html = opts.fetch(:html, {multipart: true})
+      html[:id] = form_id
 
       opts.merge({html: html})
 
