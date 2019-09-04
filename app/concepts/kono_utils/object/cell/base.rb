@@ -25,6 +25,10 @@ module KonoUtils::Object::Cell # namespace
       parent_controller.send(:index_custom_polymorphic_path, *rec)
     end
 
+    def destroy_custom_polymorphic_path(*rec)
+      parent_controller.send(:destroy_custom_polymorphic_path, *rec)
+    end
+
     def content_for_layout(name, content = nil, options = {}, &block)
       context[:_view_layout_flow] ||= ActionView::OutputFlow.new
       if content || block_given?
@@ -103,6 +107,17 @@ module KonoUtils::Object::Cell # namespace
 
     def model_gender
       t("activerecord.modelgender.#{model.class.name.underscore.to_sym}", :default => :m).to_sym
+    end
+
+    def fa_icon(icon, text: nil)
+      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
+      elements = [icon]
+      unless text.blank?
+        elements << text
+        elements.reverse!
+      end
+
+      safe_join(elements, " ")
     end
 
   end
