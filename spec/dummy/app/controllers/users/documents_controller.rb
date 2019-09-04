@@ -1,8 +1,15 @@
 class Users::DocumentsController < BaseEditingController
 
   def new
-    super do|o|
-      o.user=parent_object
+    super do |o|
+      o.user = parent_object
+      o
+    end
+  end
+
+  def create
+    super do |o|
+      o.user = parent_object
       o
     end
   end

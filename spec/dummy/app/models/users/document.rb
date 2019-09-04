@@ -9,4 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Users::Document < Document
+
+  validates :title, presence: {allow_blank: false}
+
 end
