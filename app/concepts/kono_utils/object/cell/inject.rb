@@ -30,7 +30,7 @@ module KonoUtils::Object::Cell # namespace
 
     def form_content
 
-      if inject_as_modal
+      if inject_as_modal?
 
         concept("cell/modals/container",
                 concept("cell/form", model,
