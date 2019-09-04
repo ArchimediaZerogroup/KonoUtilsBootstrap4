@@ -19,5 +19,13 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       has_multiple_elements?
     end
 
+    def target_container
+      inject_as_modal ? 'body' : "##{target_container_for_new_nested}"
+    end
+
+    def inject_as_modal
+      options[:inject_as_modal]
+    end
+
   end
 end
