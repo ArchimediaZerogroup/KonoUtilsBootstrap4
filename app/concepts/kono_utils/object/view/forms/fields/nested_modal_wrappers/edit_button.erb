@@ -1,0 +1,17 @@
+<script type="application/javascript">
+
+  (function (id_button, container_selector) {
+    var element = $(id_button)[0];
+
+    element.onclick = function (e) {
+      e.preventDefault();
+      this.kono_utils_edit_container();
+    };
+
+    element.kono_utils_edit_container = function () {
+      console.log('editazione');
+      // $(container_selector).hide().find('[type="hidden"][name$="[_destroy]"]').val('true');
+      // $(container_selector).trigger("container_deleted", [$(container_selector)[0]]);
+    }
+  })("#<%= unique_dom_id %>", '#<%= edit_target %>');
+</script>

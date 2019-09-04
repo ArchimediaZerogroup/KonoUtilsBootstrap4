@@ -7,9 +7,10 @@
     <div class="card-body">
       <%= yield %>
     </div>
-    <% if content_for_layout? :"remove_button_#{container_id}" %>
+    <% if content_for_layout? :"remove_button_#{container_id}" or content_for_layout? :"edit_button_#{container_id}" %>
       <div class="card-footer text-right">
-        <%= content_for_layout :"remove_button_#{container_id}" %>
+        <%= content_for_layout :"remove_button_#{container_id}" if content_for_layout? :"remove_button_#{container_id}" %>
+        <%= content_for_layout :"edit_button_#{container_id}" if content_for_layout? :"edit_button_#{container_id}" %>
       </div>
     <% end %>
   </div>
