@@ -1,15 +1,15 @@
 <%= concept("cell/show", form.object ) %>
 
 
-<%= concept("cell/forms/container", model,
-            form_attributes: form_attributes,
-            layout: container_layout,
-            context: {
-              form: form,
-              base_class: base_class,
-              overriden_layout: context[:nested_layout]
-            }
-    ) %>
+<!--< %= concept("cell/forms/container", model,-->
+<!--            form_attributes: form_attributes,-->
+<!--            layout: container_layout,-->
+<!--            context: {-->
+<!--              form: form,-->
+<!--              base_class: base_class,-->
+<!--              overriden_layout: context[:nested_layout]-->
+<!--            }-->
+<!--    ) %>-->
 
 <% content_for_layout :"remove_button_#{container_id}", concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
             remove_target: container_id,

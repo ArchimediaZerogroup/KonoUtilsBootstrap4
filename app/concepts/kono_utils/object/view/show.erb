@@ -1,1 +1,6 @@
-<%= displayable_attributes.collect(&:name).join('----') %>
+<dl class="row">
+  <% displayable_attributes.each do |l| %>
+    <dt class="col-sm-3"><%= model.class.human_attribute_name l.name %></dt>
+    <dd class="col-sm-9"><%= model.send(l.name) %></dd>
+  <% end %>
+</dl>

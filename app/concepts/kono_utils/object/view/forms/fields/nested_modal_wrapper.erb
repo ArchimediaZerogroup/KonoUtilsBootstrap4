@@ -7,17 +7,14 @@
               nested_layout:'modal_layout'
             }) %>
 
-<div id="<%=target_container_for_new_nested %>"></div>
-
-<!--< %= concept("cell/forms/fields/nested_modal_wrappers/forms_container", model,-->
-<!--            layout: forms_container_layout,-->
-<!--            context: {-->
-<!--              form: form,-->
-<!--              base_class: base_class,-->
-<!--              parent_cell: self-->
-<!--            })-->
-<!--%>-->
-
+<%= concept("cell/forms/fields/nested_modal_wrappers/forms_container", model,
+            layout: forms_container_layout,
+            context: {
+              form: form,
+              base_class: base_class,
+              parent_cell: self
+            })
+%>
 
 
 
