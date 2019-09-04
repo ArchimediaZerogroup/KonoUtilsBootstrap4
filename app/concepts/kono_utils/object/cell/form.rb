@@ -18,8 +18,21 @@ module KonoUtils::Object::Cell # namespace
     # [model] -> model deve essere l'ActiveRecord da utilizzare come oggetto della form
     #
     # [model,{ url:helper_path_custom }] -> come secondo parametro abbiamo l'hash delle opzioni da poter passare al form builder
+    # se al concept passiamo form_options come opzione, queste vengono mergiate nelle opzioni standard
     def forms_options
-      [model, {html: {multipart: true}}]
+      [model, _form_options]
+    end
+
+    private
+
+    ##
+    # Opzioni aggiuntive per la form
+    def _form_options
+      opts = options[:form_options] || {}
+      html = opts.fetch(:html, {multipart: true})
+
+      opts.merge({html: html})
+
     end
 
 
