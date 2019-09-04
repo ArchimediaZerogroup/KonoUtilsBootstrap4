@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     namespace :users do
       resources :contacts, only: [:create, :new]
-      resources :documents, only: [:create, :new]
+      resources :documents, only: [:create, :new, :edit]
     end
   end
 
