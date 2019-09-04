@@ -8,10 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:documents] do
-    resources :documents, only: [:create, :new], module: :users
-  end
-
 
   resources :contacts
 
