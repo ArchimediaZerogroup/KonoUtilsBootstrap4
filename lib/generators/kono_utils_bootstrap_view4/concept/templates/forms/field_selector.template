@@ -1,7 +1,7 @@
 class <%= model_name.pluralize %>::Cell::Forms::FieldSelector < KonoUtils::Object::Cell::Forms::FieldSelector
 
   def get_field
-    case attribute_name
+    case model.name
     #when :field_name
     #  concept("cell/forms/fields/association", attribute_name, field_options: {as: :check_boxes})
     else
