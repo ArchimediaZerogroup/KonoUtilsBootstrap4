@@ -1,38 +1,13 @@
 <%= concept("cell/show", form.object) %>
 
-<%= container_id %>
-
-<script type="application/javascript">
-
-  (function (container_auto_update_id) {
-    let element = $(container_auto_update_id)[0];
-
-    element.auto_refresh = function (e) {
-      console.log("Devo fare autorefresh di " + container_auto_update_id)
-      $(element).trigger("container_updated", [element]);
-      $(element).hide();
-    };
-
-  })("#<%= container_id %>");
-</script>
-
-<!--< %= concept("cell/forms/container", model,-->
-<!--            form_attributes: form_attributes,-->
-<!--            layout: container_layout,-->
-<!--            context: {-->
-<!--              form: form,-->
-<!--              base_class: base_class,-->
-<!--              overriden_layout: context[:nested_layout]-->
-<!--            }-->
-<!--    ) %>-->
-
 <% content_for_layout :"remove_button_#{container_id}", concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
                                                                 remove_target: container_id,
                                                                 layout: remove_button_layout,
                                                                 context: {
                                                                   form: form,
                                                                   base_class: base_class
-                                                                }) if policy(form.object).destroy? and show_remove_button? %>
+                                                                }),flush:true if policy(form.object).destroy? and show_remove_button? %>
+
 <% content_for_layout :"edit_button_#{container_id}", concept("cell/buttons/edit", base_class.new,
                                                               url_to: edit_custom_polymorphic_path(
                                                                 [form.object.user, form.object],
@@ -49,5 +24,5 @@
                                                                 class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'edit'))}",
                                                                 remote: true
                                                               }
-) %>
+),flush:true %>
 
