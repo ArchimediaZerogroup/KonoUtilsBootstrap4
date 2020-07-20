@@ -1,37 +1,28 @@
 <%= concept("cell/show", form.object) %>
 
-
-<!--< %= concept("cell/forms/container", model,-->
-<!--            form_attributes: form_attributes,-->
-<!--            layout: container_layout,-->
-<!--            context: {-->
-<!--              form: form,-->
-<!--              base_class: base_class,-->
-<!--              overriden_layout: context[:nested_layout]-->
-<!--            }-->
-<!--    ) %>-->
-
 <% content_for_layout :"remove_button_#{container_id}", concept("cell/forms/fields/nested_wrappers/remove_button", form.object,
                                                                 remove_target: container_id,
                                                                 layout: remove_button_layout,
                                                                 context: {
                                                                   form: form,
                                                                   base_class: base_class
-                                                                }) if policy(form.object).destroy? and show_remove_button? %>
+                                                                }),flush:true if policy(form.object).destroy? and show_remove_button? %>
 
-<%= concept("cell/buttons/edit", base_class.new,
-            url_to: edit_custom_polymorphic_path(
-              [form.object.user,form.object],
-              format: options.fetch(:format, :inject),
-              kono_utils: {
-                inject_as_modal: true,
-                target_container: 'body',
-                context: {nested_layout: context[:nested_layout]}
-              }
-            ),
-            button_options: {
-              class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'edit'))}",
-              remote: true
-            }
-    ) %>
+<% content_for_layout :"edit_button_#{container_id}", concept("cell/buttons/edit", base_class.new,
+                                                              url_to: edit_custom_polymorphic_path(
+                                                                [form.object.user, form.object],
+                                                                format: options.fetch(:format, :inject),
+                                                                kono_utils: {
+                                                                  inject_as_modal: true,
+                                                                  target_container: 'body',
+                                                                  modal_upgraded_target_container: container_id,
+                                                                  # context: {nested_layout: context[:nested_layout]}
+                                                                  context: {nested_layout: 'modal_layout'}
+                                                                }
+                                                              ),
+                                                              button_options: {
+                                                                class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'edit'))}",
+                                                                remote: true
+                                                              }
+),flush:true %>
 

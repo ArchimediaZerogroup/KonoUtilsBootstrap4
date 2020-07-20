@@ -16,7 +16,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     # Controlla se dobbiamo renderizzare un bottone per fare la build di un nuovo record
     # @return [TrueClass|FalseClass]
     def build_new_nested?
-      has_multiple_elements?
+      has_multiple_elements? and form.object.persisted?
     end
 
     def target_container
