@@ -1,5 +1,20 @@
 <%= concept("cell/show", form.object) %>
 
+<%= container_id %>
+
+<script type="application/javascript">
+
+  (function (container_auto_update_id) {
+    let element = $(container_auto_update_id)[0];
+
+    element.auto_refresh = function (e) {
+      console.log("Devo fare autorefresh di " + container_auto_update_id)
+      $(element).trigger("container_updated", [element]);
+      $(element).hide();
+    };
+
+  })("#<%= container_id %>");
+</script>
 
 <!--< %= concept("cell/forms/container", model,-->
 <!--            form_attributes: form_attributes,-->
@@ -18,20 +33,21 @@
                                                                   form: form,
                                                                   base_class: base_class
                                                                 }) if policy(form.object).destroy? and show_remove_button? %>
-
-<%= concept("cell/buttons/edit", base_class.new,
-            url_to: edit_custom_polymorphic_path(
-              [form.object.user,form.object],
-              format: options.fetch(:format, :inject),
-              kono_utils: {
-                inject_as_modal: true,
-                target_container: 'body',
-                context: {nested_layout: context[:nested_layout]}
-              }
-            ),
-            button_options: {
-              class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'edit'))}",
-              remote: true
-            }
-    ) %>
+<% content_for_layout :"edit_button_#{container_id}", concept("cell/buttons/edit", base_class.new,
+                                                              url_to: edit_custom_polymorphic_path(
+                                                                [form.object.user, form.object],
+                                                                format: options.fetch(:format, :inject),
+                                                                kono_utils: {
+                                                                  inject_as_modal: true,
+                                                                  target_container: 'body',
+                                                                  modal_upgraded_target_container: container_id,
+                                                                  # context: {nested_layout: context[:nested_layout]}
+                                                                  context: {nested_layout: 'modal_layout'}
+                                                                }
+                                                              ),
+                                                              button_options: {
+                                                                class: "kono_utils_append_nested_object #{dom_class(base_class, dom_class(form.object, 'edit'))}",
+                                                                remote: true
+                                                              }
+) %>
 

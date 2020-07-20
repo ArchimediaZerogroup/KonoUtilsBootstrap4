@@ -5,6 +5,7 @@
 <script type="application/javascript">
   var modal = $('#<%=modal_container_id %>');
   modal.modal();
+  // codice per auto chiudere la modal una volta che si è spedita la form interna
   modal.on('ajax:send', 'form', function (form) {
     modal.modal('hide');
     console.log('completato');
