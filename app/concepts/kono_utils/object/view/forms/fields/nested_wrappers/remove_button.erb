@@ -3,10 +3,22 @@
   (function (id_button, container_selector) {
     var element = $(id_button)[0];
 
+    // in modalità ajax, utilizzando le chimate di rails, facciamo in modo di attendere gli eventi
+    <% if ajax_remove? %>
+    element.onclick = function (e) {
+      $(element).on("ajax:success", function (event) {
+        element.kono_utils_delete_container();
+      }).on("ajax:error", function (event) {
+        console.error("Destroy problems", arguments, event.detail[0]);
+        $(container_selector).trigger("error_during_container_deletion", [container_selector, event.detail[0], event]);
+      });
+    };
+    <% else %>
     element.onclick = function (e) {
       e.preventDefault();
       this.kono_utils_delete_container();
     };
+    <%end %>
 
     element.kono_utils_delete_container = function () {
       $(container_selector).hide().find('[type="hidden"][name$="[_destroy]"]').val('true');
