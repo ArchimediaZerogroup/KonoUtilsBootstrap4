@@ -7,10 +7,12 @@
       <%= concept("cell/buttons/create", base_class.new,
                   url_to: new_custom_polymorphic_path(
                     [form.object, base_class.new],
-                    format: :inject,
+                    format: options.fetch(:format, :inject),
                     kono_utils: {
-                      target_container: "##{target_container_for_new_nested}",
+                      inject_as_modal: inject_as_modal,
+                      target_container: target_container,
                       structure_nested: "#{form.object_name}[#{attribute_name}_attributes]",
+                      modal_upgraded_target_container: target_container_for_new_nested,
                       context: {nested_layout: context[:nested_layout]}
                     }
                   ),

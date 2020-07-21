@@ -1,0 +1,6 @@
+<%= concept(@object.class.concept_ns("cell/inject"), @object,
+            params: params,
+            # target: params[:kono_utils][:modal_upgraded_target_container],
+            html_manipulation_method: 'replaceWith',
+            inject_show_modal: true,
+            context: {current_user: current_user, base_class: @object.class}) -%>

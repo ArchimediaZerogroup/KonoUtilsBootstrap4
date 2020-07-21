@@ -1,0 +1,12 @@
+<%= inner_form_block do |inside_form| %>
+  <%= concept(render_cell_container, model,
+              form_attributes: inner_fields,
+              layout: form_layout,
+              show_remove_button: has_multiple_elements?,
+              context: {
+                form: inside_form,
+                base_class: base_class,
+                nested_layout: 'modal_layout'
+              }) %>
+
+<% end %>

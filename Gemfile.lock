@@ -1,4 +1,12 @@
 PATH
+  remote: ../KonoUtilsHelpers
+  specs:
+    kono_utils_helpers (0.1.0)
+      actionview
+      active_type
+      activesupport (>= 4.2)
+
+PATH
   remote: ../KonoUtils
   specs:
     kono_utils (1.0.1)
@@ -8,14 +16,6 @@ PATH
       pundit (~> 2.0)
       rdiscount
       sass-rails
-
-PATH
-  remote: ../kono_utils_helpers
-  specs:
-    kono_utils_helpers (0.1.0)
-      actionview
-      active_type
-      activesupport (>= 4.2)
 
 PATH
   remote: .
@@ -150,11 +150,11 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mimemagic (0.3.3)
+    mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    nio4r (2.5.1)
+    nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pundit (2.1.0)
@@ -230,9 +230,9 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    websocket-driver (0.7.1)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
 
 PLATFORMS
   ruby

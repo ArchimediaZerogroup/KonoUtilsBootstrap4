@@ -23,7 +23,7 @@ module KonoUtilsBootstrapView4
           return ns
         end
 
-        logger.debug { "CLASSE OVERRIDE NON TROVATA PER  <<<<<---- #{ns.camelize} " }
+        logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
 
         "kono_utils/object/#{view}"
       end

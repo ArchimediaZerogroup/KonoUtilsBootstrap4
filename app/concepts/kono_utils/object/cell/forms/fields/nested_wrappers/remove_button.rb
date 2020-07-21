@@ -1,21 +1,32 @@
 module KonoUtils::Object::Cell::Forms::Fields # namespace
   ##
   # Bottone per la rimozione della riga nested
+  # *Options:*
+  # - ajax_remove: [Boolean] -> indica se vogliamo che venga veramente cancellato il record
   class NestedWrappers::RemoveButton < KonoUtils::Object::Cell::Buttons::Delete
 
 
     def url_to
-      "#"
-    end
-
-    def automatic_remove_options
-      {}
+      if ajax_remove?
+        destroy_custom_polymorphic_path(model, format: :json)
+      else
+        "#"
+      end
     end
 
     ##
-    # Nome della funzione da utilizzare quando viene cliccato il bottone
-    def js_function_name
-      @_fn_name ||= "remove_#{SecureRandom.hex(10)}"
+    # Controlla se questo record deve essere cancellato o meno via ajax
+    # @return [TrueClass, FalseClass]
+    def ajax_remove?
+      !!options.fetch(:ajax_remove, false)
+    end
+
+    def automatic_remove_options
+      if ajax_remove?
+        super.merge(remote: true)
+      else
+        {}
+      end
     end
 
     def show(&block)

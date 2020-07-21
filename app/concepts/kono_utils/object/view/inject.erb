@@ -1,0 +1,8 @@
+<% if target_container %>
+  var content = b64DecodeUnicode("<%= Base64.strict_encode64(form_content.to_s) -%>");
+  $("<%= target_container %>").<%= html_manipulation_method %>(content);
+<% else %>
+  console.warn("Devi passare in params kono_utils[target_container]=valore dove valore è il "+
+  "selettore css del componente che tramite il metodo jquery "+
+  "<%= html_manipulation_method.upcase %> modificherà il contenuto che generiamo")
+<% end %>

@@ -15,7 +15,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     end
 
     ##
-    # Metodo che è possibili fare override per rimuovere le funrioni di rails di conferma automatica
+    # Metodo che è possibili fare override per rimuovere le funzioni di rails di conferma automatica
     def automatic_remove_options
       {
         method: :delete,

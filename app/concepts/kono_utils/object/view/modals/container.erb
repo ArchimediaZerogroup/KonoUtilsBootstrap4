@@ -1,0 +1,13 @@
+<%= concept("cell/modals/header", model, layout: layout_ns("cell/modals/headers/layout")) if have_header? %>
+<%= concept("cell/modals/body", model, layout: layout_ns("cell/modals/bodies/layout")) %>
+<%= concept("cell/modals/footer", model, layout: layout_ns("cell/modals/footers/layout")) if have_footer? %>
+
+<script type="application/javascript">
+  var modal = $('#<%=modal_container_id %>');
+  modal.modal();
+  // codice per auto chiudere la modal una volta che si è spedita la form interna
+  modal.on('ajax:send', 'form', function (form) {
+    modal.modal('hide');
+    console.log('completato');
+  });
+</script>
