@@ -16,7 +16,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
 
     # causa di una stranezza di simple form che non ritiene safe il contenuto passato
     def inner_form_block
-      form.simple_fields_for(attribute_name) do |inside_form|
+      form.simple_fields_for(attribute_name,include_id: false) do |inside_form|
         capture do
           yield(inside_form)
         end.html_safe
