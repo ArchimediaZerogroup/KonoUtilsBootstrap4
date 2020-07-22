@@ -27,6 +27,6 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.i18n.default_locale = :it
-    I18n.available_locales = [:it]
+    I18n.available_locales = [:it,:en]
   end
 end
