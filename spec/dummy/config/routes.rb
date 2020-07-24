@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :users do
+    resources :searches, :only => [:index, :create]
     resources :documents, only: [:destroy]
   end
 

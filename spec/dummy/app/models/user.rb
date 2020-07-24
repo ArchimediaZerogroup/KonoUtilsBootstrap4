@@ -35,4 +35,11 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
 
 
+  scope :search, ->(args) {
+    query = all
+
+
+    query
+  }
+
 end
