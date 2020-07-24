@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require kono_utils_bootstrap_view4/application
 //= require moment/locale/it.js
+//= require moment/locale/en.js
 //= require_tree .
