@@ -14,7 +14,7 @@ module KonoUtilsBootstrapView4
     end
 
     def install_node_dependency
-      yarn_packages = ['bootstrap@4.3.1', 'jquery@3.4.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4', '@fortawesome/fontawesome-free']
+      yarn_packages = ['bootstrap@4.5.0', 'jquery@3.5.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4', '@fortawesome/fontawesome-free']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
