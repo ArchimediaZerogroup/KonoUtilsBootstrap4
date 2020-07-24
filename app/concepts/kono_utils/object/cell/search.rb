@@ -7,7 +7,7 @@ module KonoUtils::Object::Cell # namespace
     end
 
     def data_loaded?
-      false #TODO
+      model.data_loaded?
     end
 
     ##
