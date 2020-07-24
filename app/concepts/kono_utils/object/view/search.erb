@@ -16,6 +16,7 @@
     <div class="card-body">
       <%= concept("cell/form", model.search_form_builder.to_modal,
                   layout: form_layout,
+                  form_options: {url: model.search_form_builder.search_path},
                   context: {current_user: current_user, base_class: base_class}) %>
     </div>
 
