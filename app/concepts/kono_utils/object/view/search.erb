@@ -1,0 +1,40 @@
+<div class="card search_panel">
+  <div class="card-header">
+    <div class="collapse_search">
+      <span><%= t(:search) %></span>
+      <div class="float-right icon-search">
+        <%= concept("cell/buttons/collapse_search", model.search_form_builder.to_modal,
+                    layout: form_layout,
+                    collapsed_target: "##{collapse_container_id}",
+                    context: {current_user: current_user, base_class: base_class}) %>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="<%= collapse_container_id %>" class="collapsible_panel collapse <%= data_loaded? ? 'show' : '' %>">
+    <div class="card-body">
+      <%= concept("cell/form", model.search_form_builder.to_modal,
+                  layout: form_layout,
+                  context: {current_user: current_user, base_class: base_class}) %>
+    </div>
+
+    <!--    <div class="card-footer text-right text-muted">-->
+
+    <!--      < %= button_tag(t(:search), type: "submit", class: "btn btn-primary") %>-->
+
+
+    <!--      < % if search_model.data_loaded? and !reset_path.nil? %>-->
+    <!--        < %= link_to(content_tag(:span, nil, class: 'glyphicon glyphicon-remove'), reset_path, class: 'btn btn-info') %>-->
+    <!--      < % end %>-->
+
+
+    <!--      < % bf = ActiveSupport::SafeBuffer.new-->
+    <!--         buttons_editor.call(form, bf)-->
+    <!--      % >-->
+    <!--      < %= bf %>-->
+
+    <!--    </div>-->
+  </div>
+
+</div>

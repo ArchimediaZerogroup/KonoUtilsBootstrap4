@@ -4,3 +4,5 @@ it:
       buttons:
         download:
           alt: Download
+        collapse_search:
+          alt: "Ricerca"
