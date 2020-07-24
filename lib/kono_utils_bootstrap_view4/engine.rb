@@ -21,6 +21,12 @@ module KonoUtilsBootstrapView4
       end
     end
 
+    initializer 'kono_utils_bootstrap_view4.set_search_form_builder', :group => :all do |app|
+      KonoUtils.configure do |c|
+        c.search_form_builder = KonoUtilsBootstrapView4::SearchFormBuilder
+      end
+    end
+
     ##
     # Abbiamo rimosso possibili JS, lasciamo per documentazione
     initializer 'kono_utils_bootstrap_view4.append_cell_assets', :group => :all do |app|
