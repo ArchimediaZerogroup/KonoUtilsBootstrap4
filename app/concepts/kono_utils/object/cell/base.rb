@@ -29,6 +29,14 @@ module KonoUtils::Object::Cell # namespace
       parent_controller.send(:destroy_custom_polymorphic_path, *rec)
     end
 
+
+    ##
+    # Registra il contenuto con una chiave, e lo renderizza poi dove è più necessario
+    # @param [String] name
+    # @param [String] content
+    # @param [Hash{null->null}] options
+    # @param [Proc] block
+    # @return [String]
     def content_for_layout(name, content = nil, options = {}, &block)
       context[:_view_layout_flow] ||= ActionView::OutputFlow.new
       if content || block_given?
