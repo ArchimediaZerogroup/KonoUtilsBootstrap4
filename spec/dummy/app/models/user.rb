@@ -35,4 +35,14 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
 
 
+  scope :search, ->(args) {
+    query = all
+
+    unless args[:category_id].blank?
+      query = query.where(category_id: args[:category_id])
+    end
+
+    query
+  }
+
 end

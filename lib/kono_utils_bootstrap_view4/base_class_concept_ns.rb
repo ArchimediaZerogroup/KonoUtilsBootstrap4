@@ -19,7 +19,7 @@ module KonoUtilsBootstrapView4
 
 
         if safe_constantize(ns.camelize)
-          logger.info { "TROVAVA CLASSE PER : #{ns.camelize} --->>>" }
+          logger.info { "TROVATA CLASSE PER : #{ns.camelize} --->>>" }
           return ns
         end
 

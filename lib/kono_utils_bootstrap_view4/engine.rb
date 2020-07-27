@@ -8,6 +8,7 @@ module KonoUtilsBootstrapView4
     require 'kaminari/actionview/action_view_extension'
     require 'simple_form'
     require "kaminari-cells"
+    require 'data-confirm-modal'
 
 
     initializer 'kono_utils_bootstrap_view4.append_views', :before => 'kono_utils.append_views', :group => :all do |app|
@@ -18,6 +19,12 @@ module KonoUtilsBootstrapView4
     initializer 'kono_utils_bootstrap_view4.set_paginator', :group => :all do |app|
       KonoUtils.configure do |c|
         c.pagination_proxer = KonoUtilsBootstrapView4::PaginateProxer
+      end
+    end
+
+    initializer 'kono_utils_bootstrap_view4.set_search_form_builder', :group => :all do |app|
+      KonoUtils.configure do |c|
+        c.search_form_builder = KonoUtilsBootstrapView4::SearchFormBuilder
       end
     end
 

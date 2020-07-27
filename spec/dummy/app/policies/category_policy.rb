@@ -1,0 +1,2 @@
+class CategoryPolicy <  BaseEditingPolicy
+end

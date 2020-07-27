@@ -19,7 +19,7 @@ module KonoUtils::Object::Cell::Buttons # namespace
     def automatic_remove_options
       {
         method: :delete,
-        data: {confirm: t(:are_you_sure)},
+        data: {confirm: t(:are_you_sure), title: I18n.t('kono_utils.bootstrap4.buttons.delete.title')},
       }
     end
 

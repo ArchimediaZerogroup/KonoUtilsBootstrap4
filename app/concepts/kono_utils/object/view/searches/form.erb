@@ -1,0 +1,16 @@
+<%= simple_form_for(*forms_options) do |f| %>
+
+  <%= concept("cell/forms/container", model, context: {form: f}, layout: container_layout) %>
+
+  <%= hidden_field_tag "kono_utils[form_id]", form_id %>
+
+  <div class="row">
+    <div class="col-md">
+      <div class="float-right">
+        <%= concept("cell/forms/submit", nil, context: {form: f}) %>
+        <%= concept("cell/buttons/reset_search", model.search_form_builder.to_model) %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
