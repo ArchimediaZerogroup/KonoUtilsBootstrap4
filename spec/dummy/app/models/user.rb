@@ -38,6 +38,9 @@ class User < ApplicationRecord
   scope :search, ->(args) {
     query = all
 
+    unless args[:category_id].blank?
+      query = query.where(category_id: args[:category_id])
+    end
 
     query
   }
