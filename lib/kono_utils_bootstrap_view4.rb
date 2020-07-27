@@ -6,6 +6,7 @@ module KonoUtilsBootstrapView4
   autoload :PaginateProxer
   autoload :BaseClassConceptNs
   autoload :EditableField
+  autoload :BaseSearch
   autoload :SearchFormBuilder
 
   class Configuration

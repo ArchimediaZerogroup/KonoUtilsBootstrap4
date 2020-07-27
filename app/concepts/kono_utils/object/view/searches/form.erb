@@ -1,0 +1,9 @@
+<%= simple_form_for(*forms_options) do |f| %>
+
+  <%= concept("cell/forms/container", model, context: {form: f}, layout: container_layout) %>
+
+  <%= hidden_field_tag "kono_utils[form_id]", form_id %>
+
+  <% content_for_layout send_buttons_to, concept("cell/forms/submit", nil, context: {form: f}) %>
+
+<% end %>
