@@ -1,10 +1,10 @@
-it:
+en:
   kono_utils:
     bootstrap4:
       buttons:
         download:
           alt: Download
         collapse_search:
-          alt: "Ricerca"
+          alt: "Search"
         delete:
-          title: Conferma
+          title: Confirm
