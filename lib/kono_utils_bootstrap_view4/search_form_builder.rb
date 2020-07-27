@@ -5,7 +5,7 @@ module KonoUtilsBootstrapView4
     ##
     # Metodo che ritornerà il modello della ricerca BaseSearch.
     #
-    def to_modal
+    def to_model
       self.search
     end
 
