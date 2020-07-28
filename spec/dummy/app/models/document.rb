@@ -20,10 +20,12 @@ class Document < ApplicationRecord
   private
 
   def almost_one
-    # se cancellando questo elemento non abbiamo più nemmeno uno
-    if (self.user.documents.count - 1) < 1
-      self.errors.add(:base, :almost_one)
-      throw :abort
+    if self.destroyed_by_association.nil?
+      # se cancellando questo elemento non abbiamo più nemmeno uno
+      if (self.user.documents.count - 1) < 1
+        self.errors.add(:base, :almost_one)
+        throw :abort
+      end
     end
   end
 
