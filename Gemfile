@@ -35,3 +35,4 @@ gem 'cells-rails'
 gem 'kaminari-cells'
 
 gem 'rails', "~> 6.0" #impostata la versione per lo sviluppo locale
+gem "webpacker"
