@@ -14,11 +14,15 @@ module KonoUtils::Object::Cell # namespace
       nil
     end
 
+    def button_size
+      "btn-sm"
+    end
+
 
     def btn_opts(opts = {})
       custom_options = options.dig(:button_options) || opts
       opts = {
-        class: "btn #{specific_button_class} btn-xs #{custom_options.delete(:class)}".split(' ').uniq.join(' '),
+        class: "btn #{specific_button_class} #{button_size} #{custom_options.delete(:class)}".split(' ').uniq.join(' '),
         id: unique_dom_id
       }
       opts.merge!(custom_options)
