@@ -1,17 +1,19 @@
 // To reference this file, add <\%= javascript_pack_tag 'kono_utils_bootstrap_view4' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-<%
-// Ricordarsi di mantenere sincronizzate le dipendenze tra la versione non webpack negli assets,i moduli richiesti ecc
-%>
-global.jQuery = global.$ = require('jquery'); // per inserire rails con jquery
 
-global.Rails = require("@rails/ujs") // serve per data-confirm-modal
+// RICORDARSI di mantenere sincronizzate le dipendenze tra la versione non webpack negli assets,i moduli richiesti ecc
+
+// jquery risulta essere ancora una dipendenza per bootstrap4.
+global.jQuery = global.$ = require('jquery'); // rails-js cerca jquery in modo globale, quindi noi lo rendiamo globale in questo modo
+
+global.Rails = require("@rails/ujs") // serve per data-confirm-modal, rendere Rails globale
 global.Rails.start()
 require("@rails/activestorage").start()
 
+// inizio dipendenza per interfaccia Bootstrap4
 require('bootstrap');
 require('popper.js');
 global.moment = require('moment');
 require('tempusdominus-bootstrap-4');
 require('data-confirm-modal');
-global.KonoUtilsBootstrap4 = require('<%= KonoUtilsBootstrapView4::Engine.root.join('app','assets','javascripts','kono_utils_bootstrap_view4','kono_utils_bootstrap_view4.js') %>');
+global.KonoUtilsBootstrap4 = require('<%%= KonoUtilsBootstrapView4::Engine.root.join('app','assets','javascripts','kono_utils_bootstrap_view4','kono_utils_bootstrap_view4.js') %>');

@@ -21,8 +21,8 @@ module KonoUtilsBootstrapView4
     def install_cell_concept_namespacer_on_application_record
       inject_into_file 'app/models/application_record.rb', "\ninclude KonoUtilsBootstrapView4::BaseClassConceptNs\n", after: "ActiveRecord::Base"
     rescue Exception => e
-      puts "Attenzione, includere a mano KonoUtilsBootstrapView4::BaseClassConceptNs
-            nel modello da cui darivano i modelli del base editing - #{e.message}"
+      say "Attenzione, includere a mano KonoUtilsBootstrapView4::BaseClassConceptNs
+            nel modello da cui darivano i modelli del base editing - #{e.message}", :red
     end
 
     def append_dependecy_to_assets
@@ -35,10 +35,12 @@ module KonoUtilsBootstrapView4
 
       rails6 = Gem::Version.new('6')
       if rails6 <= Gem::Version.new(Rails.version)
-        puts "in rails 6 dobbiamo avere webpacker che compila erb, creiamo un file erb che includa le nostre dipendenze"
+        say "in rails 6 dobbiamo avere webpacker che compila erb, creiamo un file erb che includa le nostre dipendenze", :yellow
         run "rails webpacker:install:erb"
+        #cancelliamo il file di esempio
+        remove_file 'app/javascript/packs/hello_erb.js.erb'
         template 'kono_utils_bootstrap_view4.js.erb.template', Rails.root.join('app', 'javascript', 'packs', 'application.js.erb')
-        puts "Ricorda di aggiungere nel layout  <%= javascript_pack_tag 'application' %>"
+        say "Ricorda di aggiungere nel layout  <%= javascript_pack_tag 'application' %>", :yellow
       else
         inject_into_file 'app/assets/javascripts/application.js',
                          "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
@@ -56,9 +58,19 @@ module KonoUtilsBootstrapView4
     end
 
     def append_gem_dependency
-      gem 'cells-erb' # inserita in installazione come specificato qua http://trailblazer.to/gems/cells/rails.html#engine-render-problems
-      gem 'cells-rails'
-      gem 'kaminari-cells'
+
+      dips = [
+        'cells-erb', # inserita in installazione come specificato qua http://trailblazer.to/gems/cells/rails.html#engine-render-problems
+        'cells-rails',
+        'kaminari-cells'
+      ]
+      say "AGGIUNGO dipendenze per concepts, #{dips.join("  ")}", :green
+
+      dips.each do |dip|
+        gem dip
+      end
+
+
     end
   end
 end
