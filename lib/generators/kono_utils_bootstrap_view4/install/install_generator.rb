@@ -14,7 +14,7 @@ module KonoUtilsBootstrapView4
     end
 
     def install_node_dependency
-      yarn_packages = ['bootstrap@4.5.0', 'jquery@3.5.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4', '@fortawesome/fontawesome-free']
+      yarn_packages = ['bootstrap@4.5.0', 'jquery@3.5.1', 'popper.js', 'moment', 'tempusdominus-bootstrap-4', '@fortawesome/fontawesome-free', 'data-confirm-modal']
       run "yarn add #{yarn_packages.join(' ')}" unless yarn_packages.empty?
     end
 
@@ -26,15 +26,24 @@ module KonoUtilsBootstrapView4
     end
 
     def append_dependecy_to_assets
-      requirements = [
+      js_requirements = [
         'kono_utils_bootstrap_view4/application'
       ]
       KonoUtilsBootstrapView4.configuration.moment_js_locales.each do |l|
-        requirements << "moment/locale/#{l}.js"
+        js_requirements << "moment/locale/#{l}.js"
       end
-      inject_into_file 'app/assets/javascripts/application.js',
-                       "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
-                       before: "//= require_tree ."
+
+      rails6 = Gem::Version.new('6')
+      if rails6 <= Gem::Version.new(Rails.version)
+        puts "in rails 6 dobbiamo avere webpacker che compila erb, creiamo un file erb che includa le nostre dipendenze"
+        run "rails webpacker:install:erb"
+        template 'kono_utils_bootstrap_view4.js.erb.template', Rails.root.join('app', 'javascript', 'packs', 'application.js.erb')
+        puts "Ricorda di aggiungere nel layout  <%= javascript_pack_tag 'application' %>"
+      else
+        inject_into_file 'app/assets/javascripts/application.js',
+                         "#{requirements.collect { |c| "\n//= require #{c}" }.join}\n",
+                         before: "//= require_tree ."
+      end
 
 
       requirements = [
