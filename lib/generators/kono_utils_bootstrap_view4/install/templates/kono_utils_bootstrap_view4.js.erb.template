@@ -16,4 +16,4 @@ require('popper.js');
 global.moment = require('moment');
 require('tempusdominus-bootstrap-4');
 require('data-confirm-modal');
-global.KonoUtilsBootstrap4 = require('<%%= KonoUtilsBootstrapView4::Engine.root.join('app','assets','javascripts','kono_utils_bootstrap_view4','kono_utils_bootstrap_view4.js') %>');
+global.KonoUtilsBootstrap4 = require("<%%= KonoUtilsBootstrapView4::Engine.root.join('app','assets','javascripts','kono_utils_bootstrap_view4','kono_utils_bootstrap_view4.js') %>");
