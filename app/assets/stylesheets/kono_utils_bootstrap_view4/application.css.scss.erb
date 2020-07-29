@@ -1,0 +1,12 @@
+/*
+*= require bootstrap/dist/css/bootstrap
+*= require kono_utils/core
+*= require tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4
+// componenti cells
+*= require forms/fields/bases/layout
+ */
+// non importiamo i font, quando siamo in rails 6, in quanto sono inclusi nel template di webpacker
+<% require_asset "@fortawesome/fontawesome-free/css/all.css" if  Gem::Version.new(Rails.version) < Gem::Version.new('6') %>
+
+
+
