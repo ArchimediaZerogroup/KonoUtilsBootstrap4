@@ -4,6 +4,7 @@ module KonoUtils::Object::Cell # namespace
 
     include Pundit
     include Kaminari::Helpers::HelperMethods
+    include KonoUtilsBootstrapView4::ApplicationIconHelper
     include Kaminari::Cells
 
 
@@ -115,17 +116,6 @@ module KonoUtils::Object::Cell # namespace
 
     def model_gender
       t("activerecord.modelgender.#{model.class.name.underscore.to_sym}", :default => :m).to_sym
-    end
-
-    def fa_icon(icon, text: nil)
-      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
-      elements = [icon]
-      unless text.blank?
-        elements << text
-        elements.reverse!
-      end
-
-      safe_join(elements, " ")
     end
 
   end

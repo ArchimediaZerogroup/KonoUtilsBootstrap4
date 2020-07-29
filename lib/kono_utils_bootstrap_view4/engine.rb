@@ -28,6 +28,12 @@ module KonoUtilsBootstrapView4
       end
     end
 
+    initializer 'kono_utils_bootstrap_view4.append_helpers', after: 'kono_utils.append_helpers', :group => :all do |app|
+      KonoUtils.configure do |c|
+        c.application_helper_includes << KonoUtilsBootstrapView4::ApplicationIconHelper
+      end
+    end
+
     ##
     # Abbiamo rimosso possibili JS, lasciamo per documentazione
     initializer 'kono_utils_bootstrap_view4.append_cell_assets', :group => :all do |app|

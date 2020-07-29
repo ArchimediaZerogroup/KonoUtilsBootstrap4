@@ -8,6 +8,7 @@ module KonoUtilsBootstrapView4
   autoload :EditableField
   autoload :BaseSearch
   autoload :SearchFormBuilder
+  autoload :ApplicationIconHelper
 
   class Configuration
     attr_accessor :moment_js_locales
