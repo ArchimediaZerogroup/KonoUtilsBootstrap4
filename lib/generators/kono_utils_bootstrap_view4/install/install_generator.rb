@@ -19,7 +19,7 @@ module KonoUtilsBootstrapView4
     end
 
     def install_cell_concept_namespacer_on_application_record
-      inject_into_file 'app/models/application_record.rb', "\ninclude KonoUtilsBootstrapView4::BaseClassConceptNs\n", after: "ActiveRecord::Base"
+      inject_into_file 'app/models/application_record.rb', "\n  include KonoUtilsBootstrapView4::BaseClassConceptNs", after: "ActiveRecord::Base"
     rescue Exception => e
       say "Attenzione, includere a mano KonoUtilsBootstrapView4::BaseClassConceptNs
             nel modello da cui darivano i modelli del base editing - #{e.message}", :red
