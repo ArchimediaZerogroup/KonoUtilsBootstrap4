@@ -19,11 +19,11 @@ module KonoUtilsBootstrapView4
 
 
         if safe_constantize(ns.camelize)
-          logger.info { "TROVATA CLASSE PER : #{ns.camelize} --->>>" }
+          KonoUtilsBootstrapView4.configuration.logger.info { "TROVATA CLASSE PER : #{ns.camelize} --->>>" }
           return ns
         end
 
-        logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
+        KonoUtilsBootstrapView4.configuration.logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
 
         "kono_utils/object/#{view}"
       end

@@ -67,13 +67,10 @@ module KonoUtils::Object::Cell # namespace
     end
 
     delegates :base_class, :layout_ns
-    ##
-    # Custom logger interno per fare un namespace globale
+
+    # @return [Logger]
     def self.logger
-      return @_logger if @_logger
-      @_logger = ActiveSupport::TaggedLogging.new(Rails.logger)
-      @_logger.push_tags("KonoUtils") unless @_logger.formatter.current_tags.include?("KonoUtils")
-      @_logger
+      KonoUtilsBootstrapView4.configuration.logger
     end
 
     delegate :logger, to: :class
