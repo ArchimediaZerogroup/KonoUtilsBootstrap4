@@ -27,6 +27,11 @@ module KonoUtils::Object::Cell::Forms # namespace
             attribute_type = :file
           end
 
+          # Riconoscimento degli enum
+          if form.object.class.type_for_attribute(model.name).is_a? ActiveRecord::Enum::EnumType
+            attribute_type = :enum
+          end
+
           # riconosciamo la tipologia di campo per renderizzare quello corretto
           case attribute_type
           when :date
@@ -37,6 +42,8 @@ module KonoUtils::Object::Cell::Forms # namespace
             concept("cell/forms/fields/date_time_field", model, layout: get_layout('bases'))
           when :file
             concept("cell/forms/fields/file_field", model, layout: get_layout('bases'))
+          when :enum
+            concept("cell/forms/fields/enum", model, layout: get_layout('bases'))
           else
             logger.debug { "TIPO non riconosciuto: #{form.object.class.type_for_attribute(model.name).type} -> #{form.object.class.type_for_attribute(model.name).inspect}" }
             concept("cell/forms/fields/base", model, layout: get_layout('bases'))
