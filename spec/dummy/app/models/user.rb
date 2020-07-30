@@ -34,6 +34,13 @@ class User < ApplicationRecord
   has_many :documents, dependent: :destroy, class_name: 'Users::Document'
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
 
+  enum role: {
+    standard: 1,
+    admin: 2
+  }
+
+  validates :role, inclusion: {in: roles.keys}
+
 
   scope :search, ->(args) {
     query = all

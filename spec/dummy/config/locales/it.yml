@@ -1,0 +1,8 @@
+it:
+  activerecord:
+    attributes:
+      user/role:
+        standard: Standard
+        admin: Amministratore
+      user:
+        bio: Storia

@@ -139,6 +139,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.4)
       concurrent-ruby (~> 1.0)
+    i18n-debug (1.2.0)
+      i18n (< 2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -268,6 +270,7 @@ DEPENDENCIES
   binding_of_caller
   cells-erb
   cells-rails
+  i18n-debug
   kaminari-cells
   kono_utils!
   kono_utils_bootstrap_view4!
