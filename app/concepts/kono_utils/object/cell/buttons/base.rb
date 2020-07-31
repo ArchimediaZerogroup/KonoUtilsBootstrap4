@@ -1,7 +1,10 @@
 module KonoUtils::Object::Cell # namespace
   ##
   # Options:
-  # - content -> Contenuto del link del bottone
+  # - url_to         -> Url verso dove mandare il bottone
+  # - content        -> Contenuto del link del bottone
+  # - button_options -> possibili opzioni per il bottone fra cui:
+  #                     - class -> per la classe
   class Buttons::Base < Base
 
 
