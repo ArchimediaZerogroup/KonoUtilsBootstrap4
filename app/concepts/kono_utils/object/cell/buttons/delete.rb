@@ -23,10 +23,10 @@ module KonoUtils::Object::Cell::Buttons # namespace
       }
     end
 
-
-    def show(&block)
-      link_to fa_icon("trash"), url_to, btn_opts
+    def button_content
+      options.fetch(:content, fa_icon("trash"))
     end
+
 
   end
 end

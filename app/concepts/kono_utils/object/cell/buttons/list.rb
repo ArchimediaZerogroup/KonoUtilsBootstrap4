@@ -9,8 +9,8 @@ module KonoUtils::Object::Cell::Buttons # namespace
       'btn-link'
     end
 
-    def show
-      link_to fa_icon("list"), url_to, btn_opts
+    def button_content
+      options.fetch(:content, fa_icon("list"))
     end
 
   end

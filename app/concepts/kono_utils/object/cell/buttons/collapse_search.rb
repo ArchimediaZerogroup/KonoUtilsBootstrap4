@@ -23,8 +23,8 @@ module KonoUtils::Object::Cell::Buttons # namespace
       I18n.t('kono_utils.bootstrap4.buttons.collapse_search.alt')
     end
 
-    def show
-      link_to fa_icon("search"), url_to, btn_opts
+    def button_content
+      options.fetch(:content, fa_icon("search"))
     end
 
   end

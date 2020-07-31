@@ -1,4 +1,7 @@
 module KonoUtils::Object::Cell # namespace
+  ##
+  # Options:
+  # - content -> Contenuto del link del bottone
   class Buttons::Base < Base
 
 
@@ -28,6 +31,15 @@ module KonoUtils::Object::Cell # namespace
       opts.merge!(custom_options)
       opts[:title] = button_title unless base_class.nil?
       opts
+    end
+
+    def show(&block)
+      link_to button_content, url_to, btn_opts
+    end
+
+    # @return [String] - contenuto del bottone/link
+    def button_content
+      options.fetch(:content, model.try(:to_s) || "options[:content]")
     end
 
     private

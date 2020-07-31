@@ -9,8 +9,8 @@ module KonoUtils::Object::Cell::Buttons # namespace
       'btn-light'
     end
 
-    def show
-      link_to fa_icon("download",text: I18n.t('kono_utils.bootstrap4.buttons.download.alt')), url_to, btn_opts
+    def button_content
+      options.fetch(:content, fa_icon("download", text: I18n.t('kono_utils.bootstrap4.buttons.download.alt')))
     end
 
   end

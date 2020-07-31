@@ -13,8 +13,8 @@ module KonoUtils::Object::Cell::Buttons # namespace
       "btn-secondary"
     end
 
-    def show
-      link_to fa_icon("times"), url_to, btn_opts
+    def button_content
+      options.fetch(:content, fa_icon("times"))
     end
 
   end
