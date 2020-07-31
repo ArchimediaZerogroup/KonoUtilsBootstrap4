@@ -5,8 +5,9 @@ module KonoUtils::Object::Cell # namespace
   class Buttons::Base < Base
 
 
+    # @return [String]
     def url_to
-      "#to_override"
+      options.fetch(:url_to, "#to_override_or_options-url_to")
     end
 
     def specific_button_class
