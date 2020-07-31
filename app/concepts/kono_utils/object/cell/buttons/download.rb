@@ -13,5 +13,11 @@ module KonoUtils::Object::Cell::Buttons # namespace
       options.fetch(:content, fa_icon("download", text: I18n.t('kono_utils.bootstrap4.buttons.download.alt')))
     end
 
+    def btn_opts(opts = {})
+      {
+        target: :_blank
+      }.merge(super)
+    end
+
   end
 end
