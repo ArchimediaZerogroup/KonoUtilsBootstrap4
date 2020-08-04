@@ -6,6 +6,10 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       "L"
     end
 
+    def input_value
+      value = form.object.send(attribute_name)
+      value.is_a?(Date) ? "date: moment('#{value&.rfc2822}')," : ''
+    end
 
   end
 end

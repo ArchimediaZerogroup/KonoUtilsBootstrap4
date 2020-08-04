@@ -8,12 +8,11 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       bf = bf = ActiveSupport::SafeBuffer.new
       bf << form.input(attribute_name, field_options)
 
-      value = form.object.send(attribute_name)
 
       bf << content_tag(:script, :type => "text/javascript") do
         raw "(function(){
               $('##{datetime_picker_identifier}').datetimepicker({
-                #{ value.is_a?(DateTime) ? "date: moment('#{value&.rfc2822}')," : '' }
+                #{ input_value }
                 locale: '#{I18n.locale}',
                 keepOpen: false,
                 debug: false,
@@ -24,6 +23,14 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       end
 
       bf
+    end
+
+    ##
+    # Carica il valore nel js per poterlo avere precaricato nel campo
+    #
+    def input_value
+      value = form.object.send(attribute_name)
+      value.is_a?(DateTime) ? "date: moment('#{value&.rfc2822}')," : ''
     end
 
     def input_picker_format
