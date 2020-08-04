@@ -3,7 +3,7 @@
   <strong><%= form.label attribute_name %></strong>
 
   <% if build_new_nested? %>
-    <% if policy(base_class.new).create? %>
+    <% if policy(base_class.new).new? %>
       <%= concept("cell/buttons/create", base_class.new,
                   url_to: new_custom_polymorphic_path(
                     [form.object, base_class.new],
