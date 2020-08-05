@@ -1,6 +1,6 @@
 <div class="card search_panel">
   <div class="card-header">
-    <div class="collapse_search">
+    <div class="collapse_search" data-toggle="collapse" data-target="#<%= collapse_container_id %>">
       <span><%= t(:search) %></span>
       <div class="float-right icon-search">
         <%= concept("cell/buttons/collapse_search", model.search_form_builder.to_model,
