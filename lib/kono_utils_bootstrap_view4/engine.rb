@@ -9,7 +9,7 @@ module KonoUtilsBootstrapView4
     require 'simple_form'
     require "kaminari-cells"
     require 'data-confirm-modal'
-
+    require 'kono_utils'
 
     initializer 'kono_utils_bootstrap_view4.append_views', :before => 'kono_utils.append_views', :group => :all do |app|
       ActionController::Base.append_view_path KonoUtilsBootstrapView4::Engine.root.join("app", "views", "kono_utils")

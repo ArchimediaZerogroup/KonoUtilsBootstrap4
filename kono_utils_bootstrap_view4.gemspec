@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'kaminari', '~>1.1'
   spec.add_dependency 'simple_form', '~>4.1'
   spec.add_dependency 'data-confirm-modal'
-  spec.add_dependency 'zeitwerk', '~> 2.4'
+  spec.add_dependency 'zeitwerk'
 
 
   spec.add_dependency "trailblazer-cells", '~> 0.0.3'
