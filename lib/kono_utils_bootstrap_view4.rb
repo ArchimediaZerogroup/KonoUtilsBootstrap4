@@ -1,14 +1,19 @@
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.ignore("#{__dir__}/generators")
+loader.setup
+
 require "kono_utils_bootstrap_view4/engine"
 
 module KonoUtilsBootstrapView4
-  extend ActiveSupport::Autoload
+  # extend ActiveSupport::Autoload
 
-  autoload :PaginateProxer
-  autoload :BaseClassConceptNs
-  autoload :EditableField
-  autoload :BaseSearch
-  autoload :SearchFormBuilder
-  autoload :ApplicationIconHelper
+  # autoload :PaginateProxer
+  # autoload :BaseClassConceptNs
+  # autoload :EditableField
+  # autoload :BaseSearch
+  # autoload :SearchFormBuilder
+  # autoload :ApplicationIconHelper
 
   class Configuration
     attr_accessor :moment_js_locales

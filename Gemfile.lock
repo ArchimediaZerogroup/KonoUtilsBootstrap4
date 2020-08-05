@@ -30,6 +30,7 @@ PATH
       rails (>= 5.2, < 7)
       simple_form (~> 4.1)
       trailblazer-cells (~> 0.0.3)
+      zeitwerk (~> 2.4)
 
 GEM
   remote: https://rubygems.org/
