@@ -49,6 +49,10 @@ class User < ApplicationRecord
       query = query.where(category_id: args[:category_id])
     end
 
+    unless args[:email].blank?
+      query = query.where(arel_table[:email].matches("%#{args[:email]}%"))
+    end
+
     query
   }
 
