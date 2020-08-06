@@ -38,7 +38,7 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
     # - has_many
     def initialize_first_nested
       case reflection_association.macro
-      when :has_one
+      when :has_one, :belongs_to
         form.object.send("build_#{attribute_name}") if form.object.send(attribute_name).nil?
       when :has_many
 
