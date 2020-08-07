@@ -42,11 +42,13 @@ module KonoUtilsBootstrapView4
       #   "kono_utils/object/cell/form"
       # ]
 
-      Array([
-              "kono_utils/object/cell/forms/fields/bases/layout"
-            ]).each do |cell_class|
-        puts "@@@@@ #{cell_class.camelize.constantize.prefixes}"
-        app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes
+      app.reloader.to_prepare do
+        Array([
+                "kono_utils/object/cell/forms/fields/bases/layout"
+              ]).each do |cell_class|
+          puts "@@@@@ #{cell_class.camelize.constantize.prefixes}"
+          app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes
+        end
       end
 
 
