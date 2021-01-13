@@ -8,3 +8,8 @@ en:
           alt: "Search"
         delete:
           title: Confirm
+      forms:
+        fields:
+          file_field:
+            purge_file:
+              label: "Remove File"

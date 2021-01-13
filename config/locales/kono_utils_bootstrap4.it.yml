@@ -1,6 +1,11 @@
 it:
   kono_utils:
     bootstrap4:
+      forms:
+        fields:
+          file_field:
+            purge_file:
+              label: "Rimuovi file"
       buttons:
         download:
           alt: Download

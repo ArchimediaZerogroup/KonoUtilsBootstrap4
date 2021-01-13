@@ -11,8 +11,16 @@ module KonoUtils::Object::Cell::Forms::Fields # namespace
       if form.object.send(attribute_name).attached?
         download_button = concept("cell/buttons/download", form.object.send(attribute_name), button_options: { class: 'btn-outline-secondary' })
         if form.object.class.respond_to?(:attribute_purger_name)
-          if form.object.respond_to?(form.object.class.attribute_purger_name(attribute_name))
-            remove_checkbox = concept("cell/forms/fields/check_box", KonoUtilsBootstrapView4::EditableField.new(form.object.class.attribute_purger_name(attribute_name)))
+          attribute_purger_name = form.object.class.attribute_purger_name(attribute_name)
+          if form.object.respond_to?(attribute_purger_name)
+
+            label = form.object.class.han(attribute_purger_name,
+                                          default: I18n.t('kono_utils.bootstrap4.forms.fields.file_field.purge_file.label'))
+
+            remove_checkbox = concept("cell/forms/fields/check_box",
+                                      KonoUtilsBootstrapView4::EditableField.new(attribute_purger_name),
+                                      field_options: { label: label }
+            )
           end
         end
       end
