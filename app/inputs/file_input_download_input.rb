@@ -6,7 +6,8 @@ class FileInputDownloadInput < SimpleForm::Inputs::FileInput
       tmp = ActiveSupport::SafeBuffer.new
 
       tmp << super
-      tmp << div_button if options[:download_button]
+      tmp << div_button { options[:download_button].show } if options[:download_button]
+      tmp << div_button { options[:remove_checkbox].show } if options[:remove_checkbox]
 
       tmp
     end
@@ -14,7 +15,7 @@ class FileInputDownloadInput < SimpleForm::Inputs::FileInput
 
   def div_button
     template.content_tag(:div, class: 'input-group-append') do
-      options[:download_button].show
+      yield
     end
   end
 

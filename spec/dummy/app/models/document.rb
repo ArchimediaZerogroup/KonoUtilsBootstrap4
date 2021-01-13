@@ -13,6 +13,7 @@ class Document < ApplicationRecord
   belongs_to :user
 
   has_one_attached :doc
+  has_one_attached_remover :doc
 
   before_destroy :almost_one
 
