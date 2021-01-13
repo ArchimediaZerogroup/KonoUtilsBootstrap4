@@ -111,6 +111,10 @@ module KonoUtils::Object::Cell # namespace
       "#{t("del_title_#{model_gender}", default: 'Cancella')} #{model.mn}"
     end
 
+    def title_show_g
+      "#{t("show_title_#{model_gender}", default: 'Visualizza')} #{model.mn}"
+    end
+
     def model_gender
       t("activerecord.modelgender.#{model.class.name.underscore.to_sym}", :default => :m).to_sym
     end

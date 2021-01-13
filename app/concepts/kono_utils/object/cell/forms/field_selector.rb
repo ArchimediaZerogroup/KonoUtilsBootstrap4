@@ -19,19 +19,6 @@ module KonoUtils::Object::Cell::Forms # namespace
           concept("cell/forms/fields/association", model, layout: get_layout('associations'))
         else
 
-          attribute_type = form.object.class.type_for_attribute(model.name).type
-
-          #riconosciamo se sono file allegati
-          file = form.object.send(model.name) if form.object.respond_to?(model.name)
-          if file && SimpleForm.file_methods.any? { |m| file.respond_to?(m) }
-            attribute_type = :file
-          end
-
-          # Riconoscimento degli enum
-          if form.object.class.type_for_attribute(model.name).is_a? ActiveRecord::Enum::EnumType
-            attribute_type = :enum
-          end
-
           # riconosciamo la tipologia di campo per renderizzare quello corretto
           case attribute_type
           when :date
@@ -57,6 +44,32 @@ module KonoUtils::Object::Cell::Forms # namespace
     def get_layout(field_ns)
       layout = context[:overriden_layout].blank? ? "layout" : context[:overriden_layout]
       layout_ns("cell/forms/fields/bases/#{layout}")
+    end
+
+    private
+
+    ##
+    # Deve ritornare il tipo di attributo per estrapolare i campi standard a disposizione:
+    # * :date
+    # * :time
+    # * :datetime
+    # * :file
+    # * :enum
+    # @return [Symbol]
+    def attribute_type
+      attribute_type = form.object.class.type_for_attribute(model.name).type
+
+      #riconosciamo se sono file allegati
+      file = form.object.send(model.name) if form.object.respond_to?(model.name)
+      if file && SimpleForm.file_methods.any? { |m| file.respond_to?(m) }
+        attribute_type = :file
+      end
+
+      # Riconoscimento degli enum
+      if form.object.class.type_for_attribute(model.name).is_a? ActiveRecord::Enum::EnumType
+        attribute_type = :enum
+      end
+      attribute_type
     end
 
 

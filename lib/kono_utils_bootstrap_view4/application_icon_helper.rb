@@ -15,8 +15,8 @@ module KonoUtilsBootstrapView4
       html
     end
 
-    def fa_icon(icon, text: nil)
-      icon = content_tag(:i, nil, class: "fas fa-#{icon} fa-fw")
+    def fa_icon(icon, text: nil, solid_regular:"s")
+      icon = content_tag(:i, nil, class: "fa#{solid_regular} fa-#{icon} fa-fw")
       elements = [icon]
       unless text.blank?
         elements << text
