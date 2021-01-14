@@ -12,10 +12,11 @@ module KonoUtils::Object::Cell::Index # namespace
     ##
     # Questa funzione serve per generare la colonna della tabella
     #
-    # * *Attributes*  :
-    #   - colonna
-    #   - tipo di colonna td|th
-    #   - opzionali     : hash{record} per fare altro
+    # @param [String] field campo che mi identifica il valore del record
+    # @param [Symbol] column tipo di colonna (:td,:th)
+    # @yieldparam column_class [String]  stringa contenente la classe della colonna
+    # @yieldparam column_id [String]  stringa contenente l'id generato aggiunto cul tag della colonna
+    # @yieldreturn [String] contenuto da inserire nella colonna
     def column_builder(field, column)
       column_class = "column_#{field}"
       column_id = ''
