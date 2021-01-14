@@ -1,8 +1,14 @@
 module KonoUtils::Object::Cell::Index # namespace
   class Row < Base # class
 
+    #@!attribute [ActiveRecord::Base] model -> record della riga che stiamo stampando
+
+
+
     ##
     # Questa funzione serve per essere sovrascritta nell'helper specializzato del controller
+    # @param [Symbol] field campo da renderizzare
+    # @return [Object] valore da visualizzare nella colonna
     def print_column(field)
       model.send(field)
     end
