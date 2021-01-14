@@ -46,6 +46,7 @@ module KonoUtilsBootstrapView4
     end
 
 
+    # @return [Array<KonoUtilsBootstrapView4::EditableField>]
     def self.editable_fields_to_field_array(attributes)
       attributes.collect do |s|
 
