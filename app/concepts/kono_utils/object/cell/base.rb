@@ -1,3 +1,5 @@
+require 'kaminari/helpers/helper_methods'
+
 module KonoUtils::Object::Cell # namespace
   class Base < Trailblazer::Cell # class
     view_paths << "#{KonoUtilsBootstrapView4::Engine.root}/app/concepts"
