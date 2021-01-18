@@ -14,16 +14,14 @@ Gem::Specification.new do |spec|
   spec.description = "Extrapolation of the old view in an external gem"
   spec.license = "MIT"
 
-
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 5.2", '< 7'
-  spec.add_dependency "kono_utils", '~>1.0'
+  spec.add_dependency "kono_utils", '~>1.1'
   spec.add_dependency 'kaminari', '~>1.1'
   spec.add_dependency 'simple_form', '~>4.1'
   spec.add_dependency 'data-confirm-modal'
   spec.add_dependency 'zeitwerk'
-
 
   spec.add_dependency "trailblazer-cells", '~> 0.0.3'
   spec.add_dependency 'cells-rails'
