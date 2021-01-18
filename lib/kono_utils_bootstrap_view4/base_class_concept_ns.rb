@@ -31,7 +31,7 @@ module KonoUtilsBootstrapView4
         else
           KonoUtilsBootstrapView4.configuration.logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
 
-          "kono_utils/base_object/#{view}"
+          "kono_utils/object/#{view}"
         end
 
       end

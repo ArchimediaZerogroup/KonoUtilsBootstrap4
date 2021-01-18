@@ -44,7 +44,7 @@ module KonoUtilsBootstrapView4
 
       app.reloader.to_prepare do
         Array([
-                "kono_utils/base_object/cell/forms/fields/bases/layout"
+                "kono_utils/object/cell/forms/fields/bases/layout"
               ]).each do |cell_class|
           puts "@@@@@ - #{cell_class.camelize.constantize.name} -  #{cell_class.camelize.constantize.prefixes}"
           app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes

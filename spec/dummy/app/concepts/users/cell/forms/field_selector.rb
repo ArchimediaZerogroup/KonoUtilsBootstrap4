@@ -1,4 +1,4 @@
-class Users::Cell::Forms::FieldSelector < KonoUtils::BaseObject::Cell::Forms::FieldSelector
+class Users::Cell::Forms::FieldSelector < KonoUtils::Object::Cell::Forms::FieldSelector
 
   def get_field
     case model.name
