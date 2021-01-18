@@ -1,10 +1,15 @@
-module KonoUtils::Object::Cell::Edits # namespace
-  class PageTitle < Base
+module KonoUtils
+  module Object
+    module Cell
+      module Edits
+        class PageTitle < Base
 
-    def show
-      title_edit_g
+          def show
+            title_edit_g
+          end
+
+        end
+      end
     end
-
-
   end
 end

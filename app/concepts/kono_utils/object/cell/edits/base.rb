@@ -1,8 +1,9 @@
-module KonoUtils::Object::Cell # namespace
-  class Edits::Base < Base
+module KonoUtils
+  module Object
+    module Cell
+      class Edits::Base < Base
 
-
-
-
+      end
+    end
   end
 end

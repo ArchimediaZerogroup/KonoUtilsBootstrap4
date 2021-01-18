@@ -1,15 +1,22 @@
-module KonoUtils::Object::Cell::Forms::Fields # namespace
-  # Campo per readonly
-  class ReadOnly < Base
+module KonoUtils
+  module Object
+    module Cell
+      module Forms # namespace
+        module Fields
+          # Campo per readonly
+          class ReadOnly < Base
 
+            def field_options
+              super.merge({ disabled: true })
+            end
 
-    def field_options
-      super.merge({disabled: true})
+            def show(&block)
+              render "forms/fields/base"
+            end
+
+          end
+        end
+      end
     end
-
-    def show(&block)
-      render "forms/fields/base"
-    end
-
   end
 end

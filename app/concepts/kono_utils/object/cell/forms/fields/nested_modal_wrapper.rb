@@ -1,6 +1,13 @@
-module KonoUtils::Object::Cell::Forms::Fields # namespace
-  class NestedModalWrapper < NestedWrapper
+module KonoUtils
+  module Object
+    module Cell
+      module Forms # namespace
+        module Fields
+          class NestedModalWrapper < NestedWrapper
 
-
+          end
+        end
+      end
+    end
   end
 end

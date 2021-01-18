@@ -1,6 +1,11 @@
-module KonoUtils::Object::Cell::Index # namespace
-  class RowFooter < Row # class
+module KonoUtils
+  module Object
+    module Cell
+      module Index # namespace
+        class RowFooter < Row # class
 
-
+        end
+      end
+    end
   end
 end

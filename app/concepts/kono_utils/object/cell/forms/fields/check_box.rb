@@ -1,10 +1,18 @@
-module KonoUtils::Object::Cell::Forms::Fields # namespace
-  # Campo checkbox
-  class CheckBox < Base
+module KonoUtils
+  module Object
+    module Cell
+      module Forms # namespace
+        module Fields
+          # Campo checkbox
+          class CheckBox < Base
 
-    def base_field_options
-      super.merge(as: :boolean)
+            def base_field_options
+              super.merge(as: :boolean)
+            end
+
+          end
+        end
+      end
     end
-
   end
 end

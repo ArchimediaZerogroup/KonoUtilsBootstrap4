@@ -1,5 +1,11 @@
-module KonoUtils::Object::Cell::Edits # namespace
-  class SideTitle < Base
+module KonoUtils
+  module Object
+    module Cell
+      module Edits
+        class SideTitle < Base
 
+        end
+      end
+    end
   end
 end

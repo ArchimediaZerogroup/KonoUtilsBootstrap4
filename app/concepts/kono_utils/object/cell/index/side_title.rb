@@ -1,5 +1,11 @@
-module KonoUtils::Object::Cell::Index # namespace
-  class SideTitle < Base
+module KonoUtils
+  module Object
+    module Cell
+      module Index # namespace
+        class SideTitle < Base
 
+        end
+      end
+    end
   end
 end

@@ -1,7 +1,13 @@
-module KonoUtils::Object::Cell::Forms::FieldSelectors # namespace
-  class ModalLayout < Layout
+module KonoUtils
+  module Object
+    module Cell
+      module Forms
+        module FieldSelectors
+          class ModalLayout < Layout
 
-
-
+          end
+        end
+      end
+    end
   end
 end

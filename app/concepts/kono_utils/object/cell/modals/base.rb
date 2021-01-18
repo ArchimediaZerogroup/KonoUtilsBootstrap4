@@ -1,6 +1,10 @@
-module KonoUtils::Object::Cell # namespace
-  # Cella Base per i componenti della modal
-  class Modals::Base < Base
+module KonoUtils
+  module Object
+    module Cell
+      # Cella Base per i componenti della modal
+      class Modals::Base < Base
 
+      end
+    end
   end
 end

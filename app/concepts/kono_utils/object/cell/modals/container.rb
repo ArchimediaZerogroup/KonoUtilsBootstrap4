@@ -1,4 +1,6 @@
-module KonoUtils::Object::Cell # namespace
+module KonoUtils
+  module Object
+    module Cell
   ##
   # Contenitore principale modal, come Model riceve un oggetto che rappresente il body da renderizzare che deve rispondere
   # a to_s per restituire il contenuto del body e metodi to_footer e to_header per il contenuto degli altri componenti
@@ -21,4 +23,6 @@ module KonoUtils::Object::Cell # namespace
     end
 
   end
+end
+end
 end

@@ -1,8 +1,9 @@
-module KonoUtils::Object::Cell # namespace
-  class Shows::Base < Base
+module KonoUtils
+  module Object
+    module Cell
+      class Shows::Base < Base
 
-
-
-
+      end
+    end
   end
 end

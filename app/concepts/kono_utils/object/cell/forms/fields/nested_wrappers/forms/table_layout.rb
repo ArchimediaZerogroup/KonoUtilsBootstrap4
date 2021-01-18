@@ -1,7 +1,17 @@
-module KonoUtils::Object::Cell::Forms::Fields::NestedWrappers::Forms # namespace
-  class TableLayout < Layout
+module KonoUtils
+  module Object
+    module Cell
+      module Forms # namespace
+        module Fields
+          module NestedWrappers
+            module Forms # namespace
+              class TableLayout < Layout
 
-
-
+              end
+            end
+          end
+        end
+      end
+    end
   end
 end

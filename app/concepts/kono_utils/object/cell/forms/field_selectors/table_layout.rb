@@ -1,8 +1,14 @@
-module KonoUtils::Object::Cell::Forms::FieldSelectors # namespace
-  # Layout per la Tabella del contenitore della Form
-  class TableLayout < Layout
+module KonoUtils
+  module Object
+    module Cell
+      module Forms
+        module FieldSelectors
+          # Layout per la Tabella del contenitore della Form
+          class TableLayout < Layout
 
-
-
+          end
+        end
+      end
+    end
   end
 end

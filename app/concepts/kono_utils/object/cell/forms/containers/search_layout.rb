@@ -1,7 +1,13 @@
-module KonoUtils::Object::Cell::Forms::Containers # namespace
-  class SearchLayout < Layout
+module KonoUtils
+  module Object
+    module Cell
+      module Forms
+        module Containers
+          class SearchLayout < Layout
+          end
 
-
-
+        end
+      end
+    end
   end
 end
