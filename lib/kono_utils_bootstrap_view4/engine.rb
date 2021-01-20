@@ -11,9 +11,6 @@ module KonoUtilsBootstrapView4
     require 'data-confirm-modal'
     require 'kono_utils'
 
-    # questa parte serve a Zeitwerk per identificare concepts come una  directory da cui caricare il codice
-    config.autoload_paths << File.expand_path("../../app/concepts", __dir__)
-
     initializer 'kono_utils_bootstrap_view4.append_views', :before => 'kono_utils.append_views', :group => :all do |app|
       ActionController::Base.append_view_path KonoUtilsBootstrapView4::Engine.root.join("app", "views", "kono_utils")
       ActionController::Base.append_view_path KonoUtilsBootstrapView4::Engine.root.join("app", "views", "kono_utils", "base_editing")
