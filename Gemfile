@@ -25,8 +25,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'i18n-debug'
 
 # Temporaneo di sviluppo
-gem 'kono_utils', path: "../KonoUtils"
-gem 'kono_utils_helpers', path: "../KonoUtilsHelpers"
+# gem 'kono_utils', path: "../KonoUtils"
+# gem 'kono_utils_helpers', path: "../KonoUtilsHelpers"
 
 ##
 # questo serve per caricare correttamente il renderer

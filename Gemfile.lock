@@ -1,35 +1,13 @@
 PATH
-  remote: ../KonoUtilsHelpers
-  specs:
-    kono_utils_helpers (0.1.0.pre.rc.1)
-      actionview
-      active_type
-      activesupport (>= 4.2)
-      zeitwerk
-
-PATH
-  remote: ../KonoUtils
-  specs:
-    kono_utils (1.1.0)
-      actionview
-      active_type
-      coffee-rails
-      kono_utils_helpers
-      pundit (~> 2.0)
-      rdiscount
-      sass-rails
-      zeitwerk
-
-PATH
   remote: .
   specs:
-    kono_utils_bootstrap_view4 (0.1.0.pre.rc.5)
+    kono_utils_bootstrap_view4 (0.1.0.pre.rc.6)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.1.3)
       data-confirm-modal
       kaminari (~> 1.1)
       kaminari-cells
-      kono_utils (~> 1.1)
+      kono_utils (~> 1.1, >= 1.1.1)
       rails (>= 5.2, < 7)
       simple_form (~> 4.1)
       trailblazer-cells (~> 0.0.3)
@@ -127,7 +105,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     crass (1.0.6)
     daemons (1.3.1)
     data-confirm-modal (1.6.3)
@@ -163,6 +141,19 @@ GEM
       cells (>= 4.0.0, <= 5.0.0)
       kaminari (>= 0.16.0)
     kaminari-core (1.2.1)
+    kono_utils (1.1.1)
+      actionview
+      active_type
+      coffee-rails
+      kono_utils_helpers
+      pundit (~> 2.0)
+      rdiscount
+      sass-rails
+    kono_utils_helpers (0.1.0.pre.rc.1)
+      actionview
+      active_type
+      activesupport (>= 4.2)
+      zeitwerk
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -280,9 +271,7 @@ DEPENDENCIES
   cells-rails
   i18n-debug
   kaminari-cells
-  kono_utils!
   kono_utils_bootstrap_view4!
-  kono_utils_helpers!
   listen
   rails (~> 6.0)
   rails-i18n (>= 5.1.3)
