@@ -46,7 +46,7 @@ module KonoUtils
                                     form: form,
                                     base_class: base_class,
                                     nested_layout: nested_layout,
-                                    current_user: context[:current_user]
+                                    kono_user: context[:kono_user]
                                   }.merge(remote_context)
               )
 
@@ -77,7 +77,7 @@ module KonoUtils
                                     context: {
                                       form: form,
                                       base_class: base_class,
-                                      current_user: context[:current_user]
+                                      kono_user: context[:kono_user]
                                     }.merge(remote_context)
                 )
 

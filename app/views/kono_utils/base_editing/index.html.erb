@@ -1,10 +1,10 @@
 <% content_for(:page_title) do %>
-  <%= concept(base_class.concept_ns("cell/index/page_title"), @objects, context: {current_user: current_user,base_class:base_class}) %>
+  <%= concept(base_class.concept_ns("cell/index/page_title"), @objects, context: {kono_user: kono_user,base_class:base_class}) %>
 <% end %>
 <% content_for(:side_title) do %>
-  <%= concept(base_class.concept_ns("cell/index/side_title"), @objects, context: {current_user: current_user,base_class:base_class}) %>
+  <%= concept(base_class.concept_ns("cell/index/side_title"), @objects, context: {kono_user: kono_user,base_class:base_class}) %>
 <% end %>
 
-<%= concept(base_class.concept_ns("cell/search"), @search, context: {current_user: current_user,base_class:base_class}) unless @search.nil? %>
+<%= concept(base_class.concept_ns("cell/search"), @search, context: {kono_user: kono_user,base_class:base_class}) unless @search.nil? %>
 
-<%= concept(base_class.concept_ns("cell/index/table"), @objects, context: {current_user: current_user,base_class:base_class}) %>
+<%= concept(base_class.concept_ns("cell/index/table"), @objects, context: {kono_user: kono_user,base_class:base_class}) %>

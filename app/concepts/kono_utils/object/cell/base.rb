@@ -81,9 +81,13 @@ module KonoUtils
           base_class.concept_prefix + super + parent_controller.lookup_context.view_paths.collect(&:to_path)
         end
 
-        def current_user
-          context[:current_user]
+        def kono_user
+          context[:kono_user]
         end
+
+        ##
+        # In questo modo se non viene modificato l'utente di pundit, il pundit interno a kono utilizza quello di kono_utils
+        alias_method :current_user, :kono_user
 
         def title_mod
           "#{t(:edit)} #{model.mn}"
