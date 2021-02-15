@@ -41,6 +41,7 @@ class User < ApplicationRecord
 
   validates :role, inclusion: {in: roles.keys}
 
+  validates :birthdate, presence: true
 
   scope :search, ->(args) {
     query = all
