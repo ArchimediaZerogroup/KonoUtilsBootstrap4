@@ -1,11 +1,11 @@
 class TempusDominusInput < SimpleForm::Inputs::Base
   def input(wrapper_options)
 
-    template.content_tag(:div, class: 'input-group date', data: {target_input: 'nearest'}, id: options[:date_time_picker_identifier]) do
+    template.content_tag(:div, class: "input-group date #{ has_errors? ? 'is-invalid' : ''}", data: { target_input: 'nearest'}, id: options[:date_time_picker_identifier]) do
 
       tmp = ActiveSupport::SafeBuffer.new
-
-      tmp << @builder.text_field(attribute_name, input_html_options)
+      merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
+      tmp << @builder.text_field(attribute_name, merged_input_options)
       tmp << div_button
 
       tmp

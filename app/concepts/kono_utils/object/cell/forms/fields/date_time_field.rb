@@ -8,7 +8,7 @@ module KonoUtils
 
             def show(&block)
 
-              bf = bf = ActiveSupport::SafeBuffer.new
+              bf = ActiveSupport::SafeBuffer.new
               bf << form.input(attribute_name, field_options)
 
               bf << content_tag(:script, :type => "text/javascript") do
