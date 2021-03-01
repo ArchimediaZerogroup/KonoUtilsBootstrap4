@@ -5,6 +5,7 @@ module KonoUtils
       # ha sempre un metodo form che viene ricevuto dal contesto della form
       class Forms::Base < Base
 
+        # @return [SimpleForm::FormBuilder]
         def form
           context[:form]
         end

@@ -24,6 +24,13 @@ module KonoUtils
           [model, _form_options]
         end
 
+        ##
+        # Elenco di concept di bottoni da generare nella form per il submit
+        # @param [SimpleForm::FormBuilder] form_builder
+        def submit_buttons(form_builder:)
+          [concept("cell/forms/submit", nil, context: {form: form_builder})]
+        end
+
         protected
 
         def form_id

@@ -7,8 +7,9 @@
   <div class="row">
     <div class="col-md">
       <div class="float-right">
-        <%= concept("cell/forms/submit", nil, context: {form: f}) %>
-        <%= concept("cell/buttons/reset_search", model.search_form_builder.to_model) %>
+        <% submit_buttons(form_builder:f).each do |btn| %>
+          <%= btn %>
+        <% end %>
       </div>
     </div>
   </div>
