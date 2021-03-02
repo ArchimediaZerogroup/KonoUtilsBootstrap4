@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 5.2", '< 7'
-  spec.add_dependency "kono_utils", '~>1.1','>= 1.1.3'
+  spec.add_dependency "kono_utils", '~>1.1','>= 1.1.4'
   spec.add_dependency 'kaminari', '~>1.1'
   spec.add_dependency 'simple_form', '~>4.1'
   spec.add_dependency 'data-confirm-modal'
