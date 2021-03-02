@@ -33,6 +33,10 @@ module KonoUtils
           parent_controller.send(:destroy_custom_polymorphic_path, *rec)
         end
 
+        def show_custom_polymorphic_path(*rec)
+          parent_controller.send(:show_custom_polymorphic_path, *rec)
+        end
+
         ##
         # Registra il contenuto con una chiave, e lo renderizza poi dove è più necessario
         # @param [String] name
