@@ -32,7 +32,7 @@ module KonoUtils
             #
             def input_value
               value = form.object.send(attribute_name)
-              value.is_a?(DateTime) ? "date: moment('#{value&.rfc2822}')," : ''
+              value.respond_to?(:rfc2822) ? "date: moment('#{value.rfc2822}')," : ''
             end
 
             def input_picker_format
