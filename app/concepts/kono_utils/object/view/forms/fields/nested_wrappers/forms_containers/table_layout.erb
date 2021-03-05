@@ -2,7 +2,7 @@
   <thead>
   <tr>
     <% columns_to_show.each do |c| %>
-      <th><%= form.object.class.human_attribute_name(c.name) %></th>
+      <th><%= base_class.human_attribute_name(c.name) %></th>
     <% end %>
     <th></th>
   </tr>
