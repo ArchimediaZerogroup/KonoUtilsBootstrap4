@@ -37,6 +37,12 @@ module KonoUtils
           parent_controller.send(:show_custom_polymorphic_path, *rec)
         end
 
+        def show(&block)
+          ActiveSupport::Notifications.instrument "kono_utils_bootstrap_view4.#{self.class.name.underscore.gsub("/", ".")}", this: :data do
+            super
+          end
+        end
+
         ##
         # Registra il contenuto con una chiave, e lo renderizza poi dove è più necessario
         # @param [String] name

@@ -34,6 +34,16 @@ module KonoUtilsBootstrapView4
       end
     end
 
+    initializer 'kono_utils_bootstrap_view4.append_instrumentation', :group => :all do |app|
+      if KonoUtilsBootstrapView4.configuration.cell_metrics
+        app.config.after_initialize do
+          ActiveSupport::Notifications.subscribe /kono_utils_bootstrap_view4/ do |event|
+            Rails.logger.info "[KUBV4] #{event.name} - #{event.duration} ms - (#{event.allocations} allocations)"
+          end
+        end
+      end
+    end
+
     ##
     # Abbiamo rimosso possibili JS, lasciamo per documentazione
     initializer 'kono_utils_bootstrap_view4.append_cell_assets', :group => :all do |app|
@@ -50,7 +60,6 @@ module KonoUtilsBootstrapView4
           app.config.assets.paths += cell_class.camelize.constantize.prefixes # Song::Cell.prefixes
         end
       end
-
 
       Rails.logger.warn { "config.assets.initialize_on_precompile should be true" } unless app.config.assets.initialize_on_precompile == true
     end
