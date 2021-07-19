@@ -44,6 +44,11 @@ module KonoUtilsBootstrapView4
       end
     end
 
+    initializer 'kono_utils_bootstrap_view4.configure_auto_clear_concept_cache', :group => :all do |app|
+      app.reloader.to_prepare do
+        KonoUtilsBootstrapView4.configuration.concept_cacher.clear
+      end
+    end
     ##
     # Abbiamo rimosso possibili JS, lasciamo per documentazione
     initializer 'kono_utils_bootstrap_view4.append_cell_assets', :group => :all do |app|

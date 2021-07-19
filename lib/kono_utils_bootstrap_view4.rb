@@ -14,6 +14,7 @@ module KonoUtilsBootstrapView4
   autoload :Engine
   autoload :PaginateProxer
   autoload :SearchFormBuilder
+  autoload :ConceptCacher
   autoload :VERSION
 
   class << self
