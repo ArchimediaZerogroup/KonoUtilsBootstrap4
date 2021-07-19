@@ -1,3 +1,3 @@
-<%= concept("cell/buttons/show", model) if policy(model).show? %>
-<%= concept("cell/buttons/edit", model) if policy(model).edit? %>
-<%= concept("cell/buttons/delete", model) if policy(model).destroy? %>
+<%= concept("cell/buttons/show", model) if cached_policy.show? %>
+<%= concept("cell/buttons/edit", model) if cached_policy.edit? %>
+<%= concept("cell/buttons/delete", model) if cached_policy.destroy? %>
