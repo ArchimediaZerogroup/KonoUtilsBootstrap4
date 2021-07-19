@@ -11,7 +11,6 @@ module KonoUtilsBootstrapView4
     end
 
     def clear
-      Rails.logger.debug {"PULIZIA CACHE"}
       @_cache = {}
     end
 
