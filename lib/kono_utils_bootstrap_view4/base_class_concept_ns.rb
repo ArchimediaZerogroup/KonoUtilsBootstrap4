@@ -14,26 +14,16 @@ module KonoUtilsBootstrapView4
       end
 
       def concept_ns(view)
-        @_memo_concept ||= {}
         ns = "#{tableize(self.name)}/#{view}"
-
-        unless @_memo_concept.key?(ns)
+        KonoUtilsBootstrapView4.configuration.concept_cacher.get(ns) do |cache|
           if safe_constantize(ns.camelize)
             KonoUtilsBootstrapView4.configuration.logger.info { "TROVATA CLASSE PER : #{ns.camelize} --->>>" }
-            @_memo_concept[ns] = ns
+            cache.store(ns, ns)
           else
-            @_memo_concept[ns] = false
+            KonoUtilsBootstrapView4.configuration.logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
+            cache.store(ns, "kono_utils/object/#{view}")
           end
         end
-
-        if @_memo_concept[ns]
-          return @_memo_concept[ns]
-        else
-          KonoUtilsBootstrapView4.configuration.logger.debug { "CLASSE OVERRIDE NON TROVATA PER : #{ns.camelize}" }
-
-          "kono_utils/object/#{view}"
-        end
-
       end
 
       ##
