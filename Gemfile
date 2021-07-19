@@ -24,6 +24,10 @@ gem 'binding_of_caller'
 gem 'sass-rails', '~> 5.0'
 gem 'i18n-debug'
 
+# gemme per sviluppo
+gem 'rspec-rails', '~> 5.0.1'
+gem 'simplecov'
+
 # Temporaneo di sviluppo
 # gem 'kono_utils', path: "../KonoUtils"
 # gem 'kono_utils_helpers', path: "../KonoUtilsHelpers"
